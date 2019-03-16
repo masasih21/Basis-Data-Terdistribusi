@@ -58,4 +58,4 @@ Vagrant.configure("2") do |config|
 
     proxy.vm.provision "shell", path: "provision/bootstrap.sh", privileged: false
   end
-en
+end
