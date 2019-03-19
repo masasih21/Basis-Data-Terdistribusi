@@ -67,6 +67,7 @@ FROM test.measures
 WHERE measure_timestamp >= '2016-01-01' AND DAYOFWEEK(measure_timestamp) = 1;
 ```
 ![01](screenshot/01.png)
+
 Pada tabel ```partititoned_measures```
 ```
 EXPLAIN PARTITIONS SELECT *
