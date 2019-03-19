@@ -24,7 +24,7 @@ mysql> GRANT ALL PRIVILEGES on test.* to 'bdtuser'@'%';
 mysql> FLUSH PRIVILEGES;
 ```
 
-## Mengecek Status Plugin Partition Aktif
+## 1. Mengecek Status Plugin Partition Aktif
 
 Mengecek status dengan syntax berikut:
 ```
@@ -41,21 +41,21 @@ SELECT
 ```
 ![partition](screenshot/partition.png)
 
-## Membuat Partisi
-#### a. Range Partition
+## 2. Membuat Partisi
+### a. Range Partition
 Pada range partition, data dikelompokkan berdasarkan range(rentang) nilai yang ditentukan. Range partition ini cocok digunakan pada kolom yang nilainya terdistribusi secara merata. Contoh yang paling sering adalah kolom tanggal.
 
-#### b. List Partition
+### b. List Partition
 Pada list partition, data dikelompokkan berdasarkan nilainya. Partisi ini cocok untuk kolom yang variasi nilainya tidak banyak.
 
-#### c. Hash Partition
+### c. Hash Partition
 Penentuan “nilai mana di taruh di partisi mana” dapat diatur secara internal berdasarkan hash value.
 
-#### d. Key Partition
+### d. Key Partition
 Partisi ini didasarkan pada sebuah key dari tabel.
 
-## Testing pada "A Typical Use Case: Time Series Data"
-#### a. Melihat Plan Eksekusi
+## 3. Testing pada "A Typical Use Case: Time Series Data"
+### a. Melihat Plan Eksekusi
 Pada tabel ```measures```
 ```
 EXPLAIN SELECT *
@@ -72,7 +72,7 @@ WHERE measure_timestamp >= '2016-01-01' AND DAYOFWEEK(measure_timestamp) = 1;
 ```
 ![02](screenshot/02.png)
 
-#### b. Select Queries Benchmark
+### b. Select Queries Benchmark
 Pada tabel ```measures```
 ```
 SELECT SQL_NO_CACHE COUNT(*)
@@ -90,7 +90,7 @@ WHERE measure_timestamp >= '2016-01-01' AND DAYOFWEEK(measure_timestamp) = 1;
 ![04](screenshot/04.png)
 
 Kesimpulan ...
-#### c. Big Delete Benchmark
+### c. Big Delete Benchmark
 Menambah data pada tabel ```measures``` dan ```partitioned_measures```
 ```
 ALTER TABLE `test`.`measures` 
@@ -143,5 +143,5 @@ ALTER TABLE test.partitioned_measures
 DROP PARTITION prev_year_logs ;
 ```
 [...]
-#### Kesimpulan
+### Kesimpulan
 ...
