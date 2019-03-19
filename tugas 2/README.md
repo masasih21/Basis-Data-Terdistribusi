@@ -1,0 +1,142 @@
+# Implementasi Partisi
+
+Sebelum melakukan testing partisi tabel, mengimport database baru pada node service
+```
+mysql -u root -p -t < /vagrant/test.sql
+```
+Mengecek database telah terimport dengan baik pada node service yg ditunjuk
+Masuk pada mysql prompt
+```
+mysql -u root -p
+```
+[...]
+```
+mysql> show databases;
+```
+[...]
+```
+mysql> use test
+```
+[...]
+```
+mysql> show tables;
+```
+[...]
+Memberikan permission pada ```bdtuser``` agar dapat mengakses database dari luar
+```
+mysql> GRANT ALL PRIVILEGES on test.* to 'bdtuser'@'%';
+mysql> FLUSH PRIVILEGES;
+```
+
+## Mengecek Status Plugin Partition Aktif
+
+Untuk mengecek status dapat dilakukan
+```
+SHOW PLUGINS
+```
+atau dengan
+```
+SELECT
+    PLUGIN_NAME as Name,
+    PLUGIN_VERSION as Version,
+    PLUGIN_STATUS as Status
+    FROM INFORMATION_SCHEMA.PLUGINS
+    WHERE PLUGIN_TYPE='STORAGE ENGINE';
+```
+[...]
+
+## Membuat Partisi
+#### a. Range Partition
+Pada range partition, data dikelompokkan berdasarkan range(rentang) nilai yang ditentukan. Range partition ini cocok digunakan pada kolom yang nilainya terdistribusi secara merata. Contoh yang paling sering adalah kolom tanggal.
+
+#### b. List Partition
+Pada list partition, data dikelompokkan berdasarkan nilainya. Partisi ini cocok untuk kolom yang variasi nilainya tidak banyak.
+
+#### c. Hash Partition
+Penentuan “nilai mana di taruh di partisi mana” dapat diatur secara internal berdasarkan hash value.
+
+#### d. Key Partition
+Partisi ini didasarkan pada sebuah key dari tabel.
+
+## Testing pada "A Typical Use Case: Time Series Data"
+#### a. Melihat Plan Eksekusi
+Pada tabel ```measures```
+```
+EXPLAIN SELECT *
+FROM test.measures
+WHERE measure_timestamp >= '2016-01-01' AND DAYOFWEEK(measure_timestamp) = 1;
+```
+![01](screenshot/01.png)
+Pada tabel ```partititoned_measures```
+```
+EXPLAIN PARTITIONS SELECT *
+FROM test.partitioned_measures
+WHERE measure_timestamp >= '2016-01-01' AND DAYOFWEEK(measure_timestamp) = 1;
+```
+[...]
+#### b. Select Queries Benchmark
+Pada tabel ```measures```
+```
+SELECT SQL_NO_CACHE COUNT(*)
+FROM test.measures
+WHERE measure_timestamp >= '2016-01-01' AND DAYOFWEEK(measure_timestamp) = 1;
+```
+[...]
+Pata tabel ```partitioned_measures```
+```
+SELECT SQL_NO_CACHE COUNT(*)
+FROM test.partitioned_measures
+WHERE measure_timestamp >= '2016-01-01' AND DAYOFWEEK(measure_timestamp) = 1;
+```
+[...]
+Kesimpulan ...
+#### c. Big Delete Benchmark
+Menambah data pada tabel ```measures``` dan ```partitioned_measures``
+```
+ALTER TABLE `test`.`measures` 
+ADD INDEX `index1` (`measure_timestamp` ASC);
+
+ALTER TABLE `test`.`partitioned_measures` 
+ADD INDEX `index1` (`measure_timestamp` ASC);
+```
+Menghapus data pada tabel ```measures```
+```
+DELETE
+FROM test.measures
+WHERE  measure_timestamp < '2015-01-01';
+```
+[...]
+Menghapus data pada tabel ```partitioned_measures```
+```
+ALTER TABLE test.partitioned_measures 
+DROP PARTITION to_delete_logs ;
+```
+[...]
+Menghapus data pada tabel ```measures```
+```
+DELETE
+FROM test.measures
+WHERE  measure_timestamp < '2016-01-01';
+```
+[...]
+Menghapus data pada tabel ```partitioned_measures```
+```
+ALTER TABLE test.partitioned_measures
+DROP PARTITION prev_year_logs ;
+```
+[...]
+Menghapus data pada tabel ```measures```
+```
+DELETE
+FROM test.measures
+WHERE  measure_timestamp < '2016-01-01';
+```
+[...]
+Menghapus data pada tabel ```partitioned_measures```
+```
+ALTER TABLE test.partitioned_measures
+DROP PARTITION prev_year_logs ;
+```
+[...]
+#### Kesimpulan
+...
