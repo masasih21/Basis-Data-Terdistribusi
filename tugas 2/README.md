@@ -45,6 +45,48 @@ SELECT
 ### a. Range Partition
 Pada range partition, data dikelompokkan berdasarkan range(rentang) nilai yang ditentukan. Range partition ini cocok digunakan pada kolom yang nilainya terdistribusi secara merata. Contoh yang paling sering adalah kolom tanggal.
 
+Membuat partisi pada tabel ```userlogs```
+```
+CREATE TABLE userslogs (
+    username VARCHAR(20) NOT NULL,
+    logdata BLOB NOT NULL,
+    created DATETIME NOT NULL,
+    PRIMARY KEY(username, created)
+)
+PARTITION BY RANGE( YEAR(created) )(
+    PARTITION from_2013_or_less VALUES LESS THAN (2014),
+    PARTITION from_2014 VALUES LESS THAN (2015),
+    PARTITION from_2015 VALUES LESS THAN (2016),
+    PARTITION from_2016_and_up VALUES
+);
+```
+Membuat partisi pada tabel ```rc1```
+```
+CREATE TABLE rc1 (
+    a INT,
+    b INT
+)
+PARTITION BY RANGE COLUMNS(a, b) (
+    PARTITION p0 VALUES LESS THAN (5, 12),
+    PARTITION p3 VALUES LESS THAN (MAXVALUE, MAXVALUE)
+);
+```
+Menambah data untuk tabel ```rc1```
+```
+INSERT INTO rc1 (a,b) VALUES (4,11);
+INSERT INTO rc1 (a,b) VALUES (5,11);
+INSERT INTO rc1 (a,b) VALUES (6,11);
+INSERT INTO rc1 (a,b) VALUES (4,12);
+INSERT INTO rc1 (a,b) VALUES (5,12);
+INSERT INTO rc1 (a,b) VALUES (6,12);
+INSERT INTO rc1 (a,b) VALUES (4,13);
+INSERT INTO rc1 (a,b) VALUES (5,13);
+INSERT INTO rc1 (a,b) VALUES (6,13);
+```
+```
+SELECT *,'p0' FROM rc1 PARTITION (p0)
+```
+
 ### b. List Partition
 Pada list partition, data dikelompokkan berdasarkan nilainya. Partisi ini cocok untuk kolom yang variasi nilainya tidak banyak.
 
