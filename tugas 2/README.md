@@ -74,7 +74,8 @@ EXPLAIN PARTITIONS SELECT *
 FROM test.partitioned_measures
 WHERE measure_timestamp >= '2016-01-01' AND DAYOFWEEK(measure_timestamp) = 1;
 ```
-[...]
+![02](screenshot/02.png)
+
 #### b. Select Queries Benchmark
 Pada tabel ```measures```
 ```
@@ -82,14 +83,16 @@ SELECT SQL_NO_CACHE COUNT(*)
 FROM test.measures
 WHERE measure_timestamp >= '2016-01-01' AND DAYOFWEEK(measure_timestamp) = 1;
 ```
-[...]
+![03](screenshot/03.png)
+
 Pata tabel ```partitioned_measures```
 ```
 SELECT SQL_NO_CACHE COUNT(*)
 FROM test.partitioned_measures
 WHERE measure_timestamp >= '2016-01-01' AND DAYOFWEEK(measure_timestamp) = 1;
 ```
-[...]
+![04](screenshot/04.png)
+
 Kesimpulan ...
 #### c. Big Delete Benchmark
 Menambah data pada tabel ```measures``` dan ```partitioned_measures``
@@ -100,19 +103,24 @@ ADD INDEX `index1` (`measure_timestamp` ASC);
 ALTER TABLE `test`.`partitioned_measures` 
 ADD INDEX `index1` (`measure_timestamp` ASC);
 ```
+![05](screenshot/05.png)
+![06](screenshot/06.png)
+
 Menghapus data pada tabel ```measures```
 ```
 DELETE
 FROM test.measures
 WHERE  measure_timestamp < '2015-01-01';
 ```
-[...]
+![07](screenshot/07.png)
+
 Menghapus data pada tabel ```partitioned_measures```
 ```
 ALTER TABLE test.partitioned_measures 
 DROP PARTITION to_delete_logs ;
 ```
-[...]
+![08](screenshot/08.png)
+
 Menghapus data pada tabel ```measures```
 ```
 DELETE
