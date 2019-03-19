@@ -84,6 +84,7 @@ INSERT INTO rc1 (a,b) VALUES (5,13);
 INSERT INTO rc1 (a,b) VALUES (6,13);
 ```
 ![rc1_data](screenshot/rc1_data.png)
+
 Mengecek tabel telah terpartisi dengan baik
 ```
 SELECT *,'p0' FROM rc1 PARTITION (p0) UNION ALL SELECT *,'p3' FROM rc1 PARTITION (p3) ORDER BY a,b ASC;
