@@ -4,9 +4,7 @@ Sebelum melakukan testing partisi tabel, mengimport database baru pada node serv
 ```
 mysql -u root -p -t < /vagrant/test.sql
 ```
-Mengecek database telah terimport dengan baik pada node service yg ditunjuk.
-
-Masuk pada mysql prompt:
+Untuk mengecek database telah terimport dengan baik pada node service yg ditunjuk, masuk pada mysql prompt:
 ```
 mysql -u root -p
 ```
