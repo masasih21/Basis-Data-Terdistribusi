@@ -9,7 +9,6 @@ Masuk pada mysql prompt
 ```
 mysql -u root -p
 ```
-[...]
 ```
 mysql> show databases;
 ```
