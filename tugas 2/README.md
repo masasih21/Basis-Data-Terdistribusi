@@ -26,7 +26,7 @@ mysql> FLUSH PRIVILEGES;
 
 ## Mengecek Status Plugin Partition Aktif
 
-Untuk mengecek status dapat dilakukan
+Mengecek status dengan syntax berikut:
 ```
 SHOW PLUGINS
 ```
@@ -39,7 +39,7 @@ SELECT
     FROM INFORMATION_SCHEMA.PLUGINS
     WHERE PLUGIN_TYPE='STORAGE ENGINE';
 ```
-![partisi](screenshot/partisi.png)
+![partition](screenshot/partition.png)
 
 ## Membuat Partisi
 #### a. Range Partition
