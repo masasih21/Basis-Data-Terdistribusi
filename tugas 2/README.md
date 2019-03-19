@@ -83,9 +83,12 @@ INSERT INTO rc1 (a,b) VALUES (4,13);
 INSERT INTO rc1 (a,b) VALUES (5,13);
 INSERT INTO rc1 (a,b) VALUES (6,13);
 ```
+![rc1_data](screenshot/rc1_data.png)
+Mengecek tabel telah terpartisi dengan baik
 ```
-SELECT *,'p0' FROM rc1 PARTITION (p0)
+SELECT *,'p0' FROM rc1 PARTITION (p0) UNION ALL SELECT *,'p3' FROM rc1 PARTITION (p3) ORDER BY a,b ASC;
 ```
+![rc1_part](screenshot/rc1_part.png)
 
 ### b. List Partition
 Pada list partition, data dikelompokkan berdasarkan nilainya. Partisi ini cocok untuk kolom yang variasi nilainya tidak banyak.
