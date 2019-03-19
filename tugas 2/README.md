@@ -95,7 +95,7 @@ WHERE measure_timestamp >= '2016-01-01' AND DAYOFWEEK(measure_timestamp) = 1;
 
 Kesimpulan ...
 #### c. Big Delete Benchmark
-Menambah data pada tabel ```measures``` dan ```partitioned_measures``
+Menambah data pada tabel ```measures``` dan ```partitioned_measures```
 ```
 ALTER TABLE `test`.`measures` 
 ADD INDEX `index1` (`measure_timestamp` ASC);
