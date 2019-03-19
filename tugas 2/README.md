@@ -123,13 +123,13 @@ DELETE
 FROM test.measures
 WHERE  measure_timestamp < '2016-01-01';
 ```
-[...]
+![09](screenshot/09.png)
 Menghapus data pada tabel ```partitioned_measures```
 ```
 ALTER TABLE test.partitioned_measures
 DROP PARTITION prev_year_logs ;
 ```
-[...]
+![10](screenshot/10.png)
 
 ### Kesimpulan
 ...
