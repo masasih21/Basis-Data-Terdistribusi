@@ -130,18 +130,6 @@ ALTER TABLE test.partitioned_measures
 DROP PARTITION prev_year_logs ;
 ```
 [...]
-Menghapus data pada tabel ```measures```
-```
-DELETE
-FROM test.measures
-WHERE  measure_timestamp < '2016-01-01';
-```
-[...]
-Menghapus data pada tabel ```partitioned_measures```
-```
-ALTER TABLE test.partitioned_measures
-DROP PARTITION prev_year_logs ;
-```
-[...]
+
 ### Kesimpulan
 ...
