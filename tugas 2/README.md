@@ -13,15 +13,13 @@ mysql -u root -p
 ```
 mysql> show databases;
 ```
-[...]
+![database](screenshot/database.png)
 ```
 mysql> use test
-```
-[...]
-```
 mysql> show tables;
 ```
-[...]
+![table](screenshot/table.png)
+
 Memberikan permission pada ```bdtuser``` agar dapat mengakses database dari luar
 ```
 mysql> GRANT ALL PRIVILEGES on test.* to 'bdtuser'@'%';
@@ -43,7 +41,7 @@ SELECT
     FROM INFORMATION_SCHEMA.PLUGINS
     WHERE PLUGIN_TYPE='STORAGE ENGINE';
 ```
-[...]
+![partisi](screenshot/partisi.png)
 
 ## Membuat Partisi
 #### a. Range Partition
