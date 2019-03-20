@@ -424,16 +424,24 @@ ProxySQLAdmin> SELECT hostgroup_id, hostname, status FROM runtime_mysql_servers;
 ![onon](screenshot/onon.png)
 
 ### 12.	Membuat user MySQL
+Membuat user baru ```bdtuser``` dengan password ```bdt```
 ```
-mysql> CREATE USER 'bdt'@'%' IDENTIFIED BY 'bdt';
-mysql> GRANT ALL PRIVILEGES on test.* to 'bdt'@'%';
+mysql> CREATE USER 'bdtuser'@'%' IDENTIFIED BY 'bdt';
+```
+Memberikan akses grup replikasi untuk database ```clustertest```
+```
+mysql> GRANT ALL PRIVILEGES on clustertest.* to 'bdt'@'%';
+```
+Menyimpan perubahan
+```
 mysql> FLUSH PRIVILEGES
 mysql> EXIT;
 ```
 
 ### 13.	Membuat user ProxySQL
+Pada ```proxy```
 ```
-ProxySQLAdmin> INSERT INTO mysql_users(username, password, default_hostgroup) VALUES ('bdt', 'bdt', 2);
+ProxySQLAdmin> INSERT INTO mysql_users(username, password, default_hostgroup) VALUES ('bdtuser', 'bdt', 2);
 ProxySQLAdmin> LOAD ADMIN VARIABLES TO RUNTIME;
 ProxySQLAdmin> SAVE ADMIN VARIABLES TO DISK;
 ```
@@ -468,11 +476,25 @@ Hasil :
 ---
 
 ## D.	Tes Koneksi Keluar
+Masuk menggunakan ```bdtuser```
+```
+$ mysql -u bdtuser -p -h 127.0.0.1 -P 6033 --prompt='ProxySQLClient> '
+```
+Melihat hostname server yang melayani
 ```
 select @@hostname
 ```
-Hasil :
 ![hDM](screenshot/hDM.png)
+
+Menggunakan tools lain
+![hDS](screenshot/hDS.png)
+
+Menghentikan salah satu proses dari MySQL server (data1)
+```
+systemctl stop mysql
+```
+![onshun](screenshot/onshun.png)
 
 ## Referensi
 https://www.digitalocean.com/community/tutorials/how-to-create-a-multi-node-mysql-cluster-on-ubuntu-18-04
+https://www.digitalocean.com/community/tutorials/how-to-use-proxysql-as-a-load-balancer-for-mysql-on-ubuntu-16-04#step-8-—-verifying-the-proxysql-configuration
