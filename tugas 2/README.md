@@ -125,10 +125,10 @@ INSERT INTO serverlogs (serverid,logdata,created) VALUES (73,'data','2019-03-19 
 ```
 Mengecek tabel telah terpartisi dengan baik
 ```
-SELECT *,'server_east' FROM serverlogs PARTITION (serverlogs)
+SELECT *,'server_east' FROM serverlogs PARTITION (server_east)
 UNION ALL
-SELECT *,'serverwest' FROM serverlogs PARTITION (serverwest)
-ORDER BY a,b ASC;
+SELECT *,'server_west' FROM serverlogs PARTITION (server_west)
+ORDER BY serverid ASC;
 ```
 
 ### c. Hash Partition
