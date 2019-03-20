@@ -38,7 +38,39 @@ Mengedit isi file confg.ini
 $ sudo nano /var/lib/mysql-cluster/config.ini
 ```
 Berikut isi config ini :
----
+```
+[ndbd default]
+# Options affecting ndbd processes on all data nodes:
+NoOfReplicas=3  # Number of replicas
+
+[ndb_mgmd]
+# Management process options:
+hostname=192.168.33.10 # Hostname of the manager
+datadir=/var/lib/mysql-cluster  # Directory for the log files
+
+[ndbd]
+hostname=192.168.33.11 # Hostname/IP of the first data node
+NodeId=2            # Node ID for this data node
+datadir=/usr/local/mysql/data   # Remote directory for the data files
+
+[ndbd]
+hostname=192.168.33.12 # Hostname/IP of the second data node
+NodeId=3            # Node ID for this data node
+datadir=/usr/local/mysql/data   # Remote directory for the data files
+
+[ndbd]
+hostname=192.168.33.13 # Hostname/IP of the second data node
+NodeId=4            # Node ID for this data node
+datadir=/usr/local/mysql/data   # Remote directory for the data files
+
+[mysqld]
+# SQL node options:
+hostname=192.168.33.10 # In our case the MySQL server/client is on the same Droplet as the cluster manager
+
+[mysqld]
+# SQL node options:
+hostname=192.168.33.10
+```
 Menjalankan mdb_mgmd
 ```
 $ sudo ndb_mgmd -f /var/lib/mysql-cluster/config.ini
