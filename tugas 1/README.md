@@ -1,6 +1,6 @@
 # Implementasi MySQL Multi-Node dan ProxySQL sebagai Load Balancer
 
-### A.	Model Arsitektur
+## A.	Model Arsitektur
 Sistem ini terdiri dari sebuah NDB Manager, 3 buah Data Node, 2 buah MySQL API Node, dan sebuah ProxySQL sebagai Load Balancer.
 Berikut adalah pembagian IP beserta hostname yang digunakan:
 
@@ -12,8 +12,8 @@ Berikut adalah pembagian IP beserta hostname yang digunakan:
 | 192.168.33.13	|	Data Node				          | data3     |
 | 192.168.33.14	|	ProxySQL				          | proxy     |
 
-### B.	Implementasi
-##### 1.	Konfigurasi Awal
+## B.	Implementasi
+### 1.	Konfigurasi Awal
 Langkah awal dilakukan pada Vagrantfile.
 Cara menjalankannya:
 ```
@@ -22,7 +22,7 @@ $ vagrant up
 $ vagrant ssh (nama server)
 ```
 
-##### 2.	Instalasi dan Konfigurasi Cluster Manager
+### 2.	Instalasi dan Konfigurasi Cluster Manager
 Masuk pada ```manager``` (192.168.33.10) dan mengunduh package
 ```
 $ cd ~
@@ -130,7 +130,7 @@ $ sudo ufw allow from 192.168.33.13
 $ sudo ufw allow from 192.168.33.14
 ```
 
-##### 3.	Instalasi dan Konfigurasi Data Node
+### 3.	Instalasi dan Konfigurasi Data Node
 Masuk pada data node atau ```data``` (192.168.33.11, 192.168.33.12, 192.168.33.13) dan mengunduh package
 ```
 $ cd ~
@@ -164,12 +164,15 @@ Memulai data node
 $ sudo ndbd
 ```
 Pada data1
+
 ![ndbd1](screenshot/ndbd1.png)
 
 Pada data2
+
 ![ndbd2](screenshot/ndbd2.png)
 
 Pada data3
+
 ![ndbd3](screenshot/ndbd3.png)
 
 Memberikan akses untuk koneksi dari luar
@@ -221,15 +224,18 @@ Mengecek status
 $ sudo systemctl status ndbd
 ```
 Pada data1
+
 ![rund1](screenshot/rund1.png)
 
 Pada data2
+
 ![rund2](screenshot/rund2.png)
 
 Pada data3
+
 ![rund3](screenshot/rund3.png)
 
-##### 4.	Konfigurasi MySQL Server dan Client
+### 4.	Konfigurasi MySQL Server dan Client
 Masuk pada API node (192.168.33.10, 192.168.33.11) dan mendownload package berikut :
 ```
 $ cd ~
@@ -263,7 +269,7 @@ $ sudo systemctl restart mysql
 $ sudo systemctl enable mysql
 ```
 
-##### 5.	Verifikasi cluster
+### 5.	Verifikasi cluster
 Masuk pada API node (192.168.33.10, 192.168.33.11) .
 
 Menjalankan :
@@ -286,7 +292,7 @@ ndb_mgm> SHOW
 Hasil :
 ---
 
-##### 6.	Instalasi ProxySQL
+### 6.	Instalasi ProxySQL
 Masuk pada proxy (192.168.33.14) , pada direktori /tmp download package berikut :
 ```
 $ cd /tmp
@@ -310,7 +316,7 @@ $ systemctl status proxysql
 Hasil :
 ---
 
-##### 7.	Setting password untuk ProxySQL Administrator
+### 7.	Setting password untuk ProxySQL Administrator
 Pada proxy, jalankan :
 
 ```
@@ -321,7 +327,7 @@ ProxySQLAdmin> LOAD ADMIN VARIABLES TO RUNTIME;
 ProxySQLAdmin> SAVE ADMIN VARIABLES TO DISK;
 ```
 
-##### 8.	Konfigurasi Monitoring di MySQL
+### 8.	Konfigurasi Monitoring di MySQL
 Pada salah satu MySQL node, jalankan :
 ```
 $ curl -OL https://gist.github.com/lefred/77ddbde301c72535381ae7af9f968322/raw/5e40b03333a3c148b78aa348fd2cd5b5dbb36e4d/addition_to_sys.sql
@@ -338,7 +344,7 @@ mysql> GRANT SELECT on sys.* to 'monitor'@'%';
 mysql> FLUSH PRIVILEGES;
 ```
 
-##### 9.	Konfigurasi Monitoring di ProxySQL
+### 9.	Konfigurasi Monitoring di ProxySQL
 Pada proxy, jalankan :
 ```
 ProxySQLAdmin> UPDATE global_variables SET variable_value='monitor' WHERE variable_name='mysql-monitor_username';
@@ -346,7 +352,7 @@ ProxySQLAdmin> LOAD MYSQL VARIABLES TO RUNTIME;
 ProxySQLAdmin> SAVE MYSQL VARIABLES TO DISK;
 ```
 
-##### 10.	Menambahkan node MySQL ke server Proxy
+### 10.	Menambahkan node MySQL ke server Proxy
 Pada proxy, membuat baris baru dengan variable dan value pada mysql_group replication_hostgroups
 ```
 ProxySQLAdmin> INSERT INTO mysql_group_replication_hostgroups (writer_hostgroup, backup_writer_hostgroup, reader_hostgroup, offline_hostgroup, active, max_writers, writer_is_also_reader, max_transactions_behind) VALUES (2, 4, 3, 1, 1, 3, 1, 100);
@@ -365,7 +371,7 @@ ProxySQLAdmin> SELECT hostgroup_id, hostname, status FROM runtime_mysql_servers;
 Hasil :
 ---
 
-##### 11.	Membuat user MySQL
+### 11.	Membuat user MySQL
 ```
 mysql> CREATE USER 'bdt'@'%' IDENTIFIED BY 'bdt';
 mysql> GRANT ALL PRIVILEGES on test.* to 'bdt'@'%';
@@ -373,14 +379,14 @@ mysql> FLUSH PRIVILEGES
 mysql> EXIT;
 ```
 
-##### 12.	Membuat user ProxySQL
+### 12.	Membuat user ProxySQL
 ```
 ProxySQLAdmin> INSERT INTO mysql_users(username, password, default_hostgroup) VALUES ('bdt', 'bdt', 2);
 ProxySQLAdmin> LOAD ADMIN VARIABLES TO RUNTIME;
 ProxySQLAdmin> SAVE ADMIN VARIABLES TO DISK;
 ```
 
-### C.	Menyimpan Data pada MySQL Cluster
+## C.	Menyimpan Data pada MySQL Cluster
 Masuk pada mysql dengan
 ```
 $ mysql –u root –p
@@ -409,9 +415,12 @@ mysql> show tables;
 Hasil :
 ---
 
-### D.	Tes Koneksi Keluar
+## D.	Tes Koneksi Keluar
 ```
 select @@hostname
 ```
 Hasil :
 ![hDM](screenshot/hDM.png)
+
+## Referensi
+https://www.digitalocean.com/community/tutorials/how-to-create-a-multi-node-mysql-cluster-on-ubuntu-18-04
