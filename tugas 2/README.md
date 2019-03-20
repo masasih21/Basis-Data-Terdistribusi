@@ -2,7 +2,7 @@
 
 Secara definisi partisi tabel adalah memecah tabel menjadi beberapa bagian/segmen yang bertujuan untuk mempercepat proses query.
 
-## 0. Pendahuluan
+## Pendahuluan
 Sebelum melakukan testing partisi tabel, mengimport database baru pada node service
 ```
 mysql -u root -p -t < /vagrant/test.sql
@@ -314,4 +314,7 @@ DROP PARTITION prev_year_logs ;
 ![10](screenshot/10.png)
 
 ### Kesimpulan
-...
+Partisi tabel dapat menyelesaikan query dengan lebih baik karena partisi membutuhkan waktu yang relatif lebih cepat dibandingkan dengan tabel tanpa partisi.
+
+### Referensi
+https://www.vertabelo.com/blog/technical-articles/everything-you-need-to-know-about-mysql-partitions
