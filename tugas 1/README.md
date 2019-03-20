@@ -340,15 +340,16 @@ mysql> SELECT * FROM test_table;
 ![data](screenshot/data.png)
 
 ### 7. Instalasi ProxySQL
-Masuk pada proxy (192.168.33.14) , pada direktori /tmp download package berikut :
+Masuk pada ```proxy``` (192.168.33.14) , pada direktori ```/tmp``` unduh package
 ```
 $ cd /tmp
 $ curl –OL https://github.com/sysown/proxysql/releases/download/ v1.4.4/proxysql_1.4.4-ubuntu16_amd64.deb
 ```
-Menginstall package :
+Menginstall package ```mysql-client```
 ```
 $ sudo dpkg -i proxysql_*
 $ rm proxysql_*
+
 $ sudo apt-get update
 $ sudo apt-get install mysql-client
 ```
@@ -360,8 +361,7 @@ Mengecek status
 ```
 $ systemctl status proxysql
 ```
-Hasil :
----
+![runp](screenshot/runp.png)
 
 ### 8.	Setting password untuk ProxySQL Administrator
 Pada proxy, jalankan :
