@@ -45,7 +45,7 @@ SELECT
 ### a. Range Partition
 Pada range partition, data dikelompokkan berdasarkan range(rentang) nilai yang ditentukan. Range partition ini cocok digunakan pada kolom yang nilainya terdistribusi secara merata. Contoh yang paling sering adalah kolom tanggal.
 
-Membuat partisi pada tabel ```userlogs```
+Membuat partisi tabel ```userlogs```
 ```
 CREATE TABLE userslogs (
     username VARCHAR(20) NOT NULL,
@@ -60,7 +60,7 @@ PARTITION BY RANGE( YEAR(created) )(
     PARTITION from_2016_and_up VALUES
 );
 ```
-Membuat partisi pada tabel ```rc1```
+Membuat partisi tabel ```rc1```
 ```
 CREATE TABLE rc1 (
     a INT,
@@ -71,7 +71,7 @@ PARTITION BY RANGE COLUMNS(a, b) (
     PARTITION p3 VALUES LESS THAN (MAXVALUE, MAXVALUE)
 );
 ```
-Menambah data untuk tabel ```rc1```
+Menambahkan data tabel ```rc1```
 ```
 INSERT INTO rc1 (a,b) VALUES (4,11);
 INSERT INTO rc1 (a,b) VALUES (5,11);
@@ -94,11 +94,55 @@ SELECT *,'p0' FROM rc1 PARTITION (p0) UNION ALL SELECT *,'p3' FROM rc1 PARTITION
 ### b. List Partition
 Pada list partition, data dikelompokkan berdasarkan nilainya. Partisi ini cocok untuk kolom yang variasi nilainya tidak banyak.
 
+Membuat partisi tabel ```serverlogs```
+```
+CREATE TABLE serverlogs (
+    serverid INT NOT NULL, 
+    logdata BLOB NOT NULL,
+    created DATETIME NOT NULL
+)
+PARTITION BY LIST (serverid)(
+    PARTITION server_east VALUES IN(1,43,65,12,56,73),
+    PARTITION server_west VALUES IN(534,6422,196,956,22)
+);
+```
+Menambahkan data tabel ```serverlogs```
+Mengecek tabel telah terpartisi dengan baik
+
 ### c. Hash Partition
 Penentuan “nilai mana di taruh di partisi mana” dapat diatur secara internal berdasarkan hash value.
 
+Membuat partisi tabel ```serverlogs2```
+```
+CREATE TABLE serverlogs2 (
+    serverid INT NOT NULL, 
+    logdata BLOB NOT NULL,
+    created DATETIME NOT NULL
+)
+PARTITION BY HASH (serverid)
+PARTITIONS 10;
+```
+Menambahkan data tabel ```serverlogs2```
+
+Mengecek tabel telah terpartisi dengan baik
+
 ### d. Key Partition
 Partisi ini didasarkan pada sebuah key dari tabel.
+
+Membuat partisi tabel ```serverlogs3```
+```
+CREATE TABLE serverlogs3 (
+    serverid INT NOT NULL, 
+    logdata BLOB NOT NULL,
+    created DATETIME NOT NULL,
+	UNIQUE KEY (serverid)
+)
+PARTITION BY KEY()
+PARTITIONS 10;
+```
+Menambahkan data tabel ```serverlogs3```
+
+Mengecek tabel telah terpartisi dengan baik
 
 ## 3. Testing pada "A Typical Use Case: Time Series Data"
 ### a. Melihat Plan Eksekusi
@@ -135,7 +179,6 @@ WHERE measure_timestamp >= '2016-01-01' AND DAYOFWEEK(measure_timestamp) = 1;
 ```
 ![04](screenshot/04.png)
 
-Kesimpulan ...
 ### c. Big Delete Benchmark
 Menambah data pada tabel ```measures``` dan ```partitioned_measures```
 ```
