@@ -123,6 +123,8 @@ INSERT INTO serverlogs (serverid,logdata,created) VALUES (56,'data','2019-03-19 
 INSERT INTO serverlogs (serverid,logdata,created) VALUES (534,'data','2019-03-19 17:16:15');
 INSERT INTO serverlogs (serverid,logdata,created) VALUES (73,'data','2019-03-19 17:16:15');
 ```
+![data](screenshot/data.png)
+
 Mengecek tabel telah terpartisi dengan baik
 ```
 SELECT *,'server_east' FROM serverlogs PARTITION (server_east)
@@ -130,6 +132,7 @@ UNION ALL
 SELECT *,'server_west' FROM serverlogs PARTITION (server_west)
 ORDER BY serverid ASC;
 ```
+![s1](screenshot/s1.png)
 
 ### c. Hash Partition
 Penentuan “nilai mana di taruh di partisi mana” dapat diatur secara internal berdasarkan hash value.
@@ -158,6 +161,8 @@ INSERT INTO serverlogs2 (serverid,logdata,created) VALUES (56,'data','2019-03-19
 INSERT INTO serverlogs2 (serverid,logdata,created) VALUES (534,'data','2019-03-19 17:16:15');
 INSERT INTO serverlogs2 (serverid,logdata,created) VALUES (73,'data','2019-03-19 17:16:15');
 ```
+![data](screenshot/data.png)
+
 Mengecek tabel telah terpartisi dengan baik
 ```
 SELECT *,'p0' FROM serverlogs2 PARTITION (p0)
@@ -181,6 +186,7 @@ UNION ALL
 SELECT *,'p9' FROM serverlogs2 PARTITION (p9)
 ORDER BY serverid ASC;
 ```
+![s2](screenshot/s2.png)
 
 ### d. Key Partition
 Partisi ini didasarkan pada sebuah key dari tabel.
@@ -210,6 +216,8 @@ INSERT INTO serverlogs3 (serverid,logdata,created) VALUES (56,'data','2019-03-19
 INSERT INTO serverlogs3 (serverid,logdata,created) VALUES (534,'data','2019-03-19 17:16:15');
 INSERT INTO serverlogs3 (serverid,logdata,created) VALUES (73,'data','2019-03-19 17:16:15');
 ```
+![data](screenshot/data.png)
+
 Mengecek tabel telah terpartisi dengan baik
 ```
 SELECT *,'p0' FROM serverlogs3 PARTITION (p0)
@@ -223,6 +231,7 @@ UNION ALL
 SELECT *,'p4' FROM serverlogs3 PARTITION (p4)
 ORDER BY serverid ASC;
 ```
+![s3](screenshot/s3.png)
 
 ## 3. Testing pada "A Typical Use Case: Time Series Data"
 ### a. Melihat Plan Eksekusi
