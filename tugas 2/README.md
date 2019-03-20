@@ -87,7 +87,10 @@ INSERT INTO rc1 (a,b) VALUES (6,13);
 
 Mengecek tabel telah terpartisi dengan baik
 ```
-SELECT *,'p0' FROM rc1 PARTITION (p0) UNION ALL SELECT *,'p3' FROM rc1 PARTITION (p3) ORDER BY a,b ASC;
+SELECT *,'p0' FROM rc1 PARTITION (p0)
+UNION ALL
+SELECT *,'p3' FROM rc1 PARTITION (p3)
+ORDER BY a,b ASC;
 ```
 ![rc1_part](screenshot/rc1_part.png)
 
@@ -107,7 +110,26 @@ PARTITION BY LIST (serverid)(
 );
 ```
 Menambahkan data tabel ```serverlogs```
+```
+INSERT INTO serverlogs (serverid,logdata,created) VALUES (1,'data','2019-03-19 17:16:15');
+INSERT INTO serverlogs (serverid,logdata,created) VALUES (22,'data','2019-03-19 17:16:15');
+INSERT INTO serverlogs (serverid,logdata,created) VALUES (43,'data','2019-03-19 17:16:15');
+INSERT INTO serverlogs (serverid,logdata,created) VALUES (956,'data','2019-03-19 17:16:15');
+INSERT INTO serverlogs (serverid,logdata,created) VALUES (65,'data','2019-03-19 17:16:15');
+INSERT INTO serverlogs (serverid,logdata,created) VALUES (196,'data','2019-03-19 17:16:15');
+INSERT INTO serverlogs (serverid,logdata,created) VALUES (12,'data','2019-03-19 17:16:15');
+INSERT INTO serverlogs (serverid,logdata,created) VALUES (6422,'data','2019-03-19 17:16:15');
+INSERT INTO serverlogs (serverid,logdata,created) VALUES (56,'data','2019-03-19 17:16:15');
+INSERT INTO serverlogs (serverid,logdata,created) VALUES (534,'data','2019-03-19 17:16:15');
+INSERT INTO serverlogs (serverid,logdata,created) VALUES (73,'data','2019-03-19 17:16:15');
+```
 Mengecek tabel telah terpartisi dengan baik
+```
+SELECT *,'server_east' FROM serverlogs PARTITION (serverlogs)
+UNION ALL
+SELECT *,'serverwest' FROM serverlogs PARTITION (serverwest)
+ORDER BY a,b ASC;
+```
 
 ### c. Hash Partition
 Penentuan “nilai mana di taruh di partisi mana” dapat diatur secara internal berdasarkan hash value.
@@ -123,8 +145,42 @@ PARTITION BY HASH (serverid)
 PARTITIONS 10;
 ```
 Menambahkan data tabel ```serverlogs2```
-
+```
+INSERT INTO serverlogs2 (serverid,logdata,created) VALUES (1,'data','2019-03-19 17:16:15');
+INSERT INTO serverlogs2 (serverid,logdata,created) VALUES (22,'data','2019-03-19 17:16:15');
+INSERT INTO serverlogs2 (serverid,logdata,created) VALUES (43,'data','2019-03-19 17:16:15');
+INSERT INTO serverlogs2 (serverid,logdata,created) VALUES (956,'data','2019-03-19 17:16:15');
+INSERT INTO serverlogs2 (serverid,logdata,created) VALUES (65,'data','2019-03-19 17:16:15');
+INSERT INTO serverlogs2 (serverid,logdata,created) VALUES (196,'data','2019-03-19 17:16:15');
+INSERT INTO serverlogs2 (serverid,logdata,created) VALUES (12,'data','2019-03-19 17:16:15');
+INSERT INTO serverlogs2 (serverid,logdata,created) VALUES (6422,'data','2019-03-19 17:16:15');
+INSERT INTO serverlogs2 (serverid,logdata,created) VALUES (56,'data','2019-03-19 17:16:15');
+INSERT INTO serverlogs2 (serverid,logdata,created) VALUES (534,'data','2019-03-19 17:16:15');
+INSERT INTO serverlogs2 (serverid,logdata,created) VALUES (73,'data','2019-03-19 17:16:15');
+```
 Mengecek tabel telah terpartisi dengan baik
+```
+SELECT *,'p0' FROM serverlogs2 PARTITION (p0)
+UNION ALL 
+SELECT *,'p1' FROM serverlogs2 PARTITION (p1)
+UNION ALL 
+SELECT *,'p2' FROM serverlogs2 PARTITION (p2)
+UNION ALL 
+SELECT *,'p3' FROM serverlogs2 PARTITION (p3)
+UNION ALL 
+SELECT *,'p4' FROM serverlogs2 PARTITION (p4)
+UNION ALL 
+SELECT *,'p5' FROM serverlogs2 PARTITION (p5)
+UNION ALL 
+SELECT *,'p6' FROM serverlogs2 PARTITION (p6)
+UNION ALL 
+SELECT *,'p7' FROM serverlogs2 PARTITION (p7)
+UNION ALL 
+SELECT *,'p8' FROM serverlogs2 PARTITION (p8)
+UNION ALL 
+SELECT *,'p9' FROM serverlogs2 PARTITION (p9)
+ORDER BY serverid ASC;
+```
 
 ### d. Key Partition
 Partisi ini didasarkan pada sebuah key dari tabel.
@@ -141,8 +197,32 @@ PARTITION BY KEY()
 PARTITIONS 10;
 ```
 Menambahkan data tabel ```serverlogs3```
-
+```
+INSERT INTO serverlogs3 (serverid,logdata,created) VALUES (1,'data','2019-03-19 17:16:15');
+INSERT INTO serverlogs3 (serverid,logdata,created) VALUES (22,'data','2019-03-19 17:16:15');
+INSERT INTO serverlogs3 (serverid,logdata,created) VALUES (43,'data','2019-03-19 17:16:15');
+INSERT INTO serverlogs3 (serverid,logdata,created) VALUES (956,'data','2019-03-19 17:16:15');
+INSERT INTO serverlogs3 (serverid,logdata,created) VALUES (65,'data','2019-03-19 17:16:15');
+INSERT INTO serverlogs3 (serverid,logdata,created) VALUES (196,'data','2019-03-19 17:16:15');
+INSERT INTO serverlogs3 (serverid,logdata,created) VALUES (12,'data','2019-03-19 17:16:15');
+INSERT INTO serverlogs3 (serverid,logdata,created) VALUES (6422,'data','2019-03-19 17:16:15');
+INSERT INTO serverlogs3 (serverid,logdata,created) VALUES (56,'data','2019-03-19 17:16:15');
+INSERT INTO serverlogs3 (serverid,logdata,created) VALUES (534,'data','2019-03-19 17:16:15');
+INSERT INTO serverlogs3 (serverid,logdata,created) VALUES (73,'data','2019-03-19 17:16:15');
+```
 Mengecek tabel telah terpartisi dengan baik
+```
+SELECT *,'p0' FROM serverlogs3 PARTITION (p0)
+UNION ALL 
+SELECT *,'p1' FROM serverlogs3 PARTITION (p1)
+UNION ALL 
+SELECT *,'p2' FROM serverlogs3 PARTITION (p2)
+UNION ALL 
+SELECT *,'p3' FROM serverlogs3 PARTITION (p3)
+UNION ALL 
+SELECT *,'p4' FROM serverlogs3 PARTITION (p4)
+ORDER BY serverid ASC;
+```
 
 ## 3. Testing pada "A Typical Use Case: Time Series Data"
 ### a. Melihat Plan Eksekusi
