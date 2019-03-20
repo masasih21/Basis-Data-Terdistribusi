@@ -447,7 +447,7 @@ ProxySQLAdmin> SAVE ADMIN VARIABLES TO DISK;
 ```
 
 ## C.	Menyimpan Data pada MySQL Cluster
-Masuk pada mysql dengan
+Masuk pada mysql prompt dengan
 ```
 $ mysql –u root –p
 ```
@@ -464,16 +464,14 @@ Malihat daftar database
 ```
 mysql> show databases;
 ```
-Hasil :
----
+![db](screenshot/db.png)
 
 Melihat daftar table pada database sakila
 ```
 mysql> use sakila;
 mysql> show tables;
 ```
-Hasil :
----
+![tb](screenshot/tb.png)
 
 ## D.	Tes Koneksi Keluar
 Masuk menggunakan ```bdtuser```
