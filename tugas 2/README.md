@@ -1,5 +1,8 @@
 # Implementasi Partisi
 
+Secara definisi partisi tabel adalah memecah tabel menjadi beberapa bagian/segmen yang bertujuan untuk mempercepat proses query.
+
+## Persiapan
 Sebelum melakukan testing partisi tabel, mengimport database baru pada node service
 ```
 mysql -u root -p -t < /vagrant/test.sql
