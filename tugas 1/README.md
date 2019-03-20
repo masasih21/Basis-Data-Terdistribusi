@@ -67,7 +67,7 @@ Mengecek status
 $ sudo systemctl status ndb_mgmd
 ```
 Hasil :
----
+![runm](screenshot/runm.png)
 
 Memberikan akses untuk koneksi dari luar
 ```
@@ -340,4 +340,4 @@ Hasil :
 select @@hostname
 ```
 Hasil :
----
+![hDM](screenshot/hDM.png)
