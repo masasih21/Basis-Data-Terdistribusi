@@ -236,17 +236,20 @@ Pada data3
 ![rund3](screenshot/rund3.png)
 
 ### 4.	Konfigurasi MySQL Server dan Client
-Masuk pada API node (192.168.33.10, 192.168.33.11) dan mendownload package berikut :
+Masuk pada API node (192.168.33.10, 192.168.33.11) dan mengunduh package
 ```
 $ cd ~
 $ wget https://dev.mysql.com/get/Downloads/MySQL-Cluster-7.6/mysql-cluster_7.6.6-1ubuntu18.04_amd64.deb
 ```
-Mengekstrak arsip
+Membuat direktori
 ```
 $ mkdir install
+```
+Mengekstrak arsip
+```
 $ tar -xvf mysql-cluster_7.6.6-1ubuntu18.04_amd64.deb-bundle.tar -C install/
 ```
-Menginstall dependency :
+Menginstall dependency komponen MySQL 
 ```
 $ cd install
 $ sudo apt update
@@ -257,15 +260,27 @@ $ sudo dpkg -i mysql-client_7.6.6-1ubuntu18.04_amd64.deb
 $ sudo dpkg -i mysql-cluster-community-server_7.6.6-1ubuntu18.04_amd64.deb
 $ sudo dpkg -i mysql-server_7.6.6-1ubuntu18.04_amd64.deb
 ```
-Mengedit isi /etc/mysql/my.cnf
+Mengedit isi ```/etc/mysql/my.cnf```
 ```
 $ sudo nano /etc/mysql/my.cnf
 ```
-Tambahan isi my.cnf :
----
+Tambahan isi pada ```my.cnf```:
+```
+. . .
+[mysqld]
+# Options for mysqld process:
+ndbcluster                      # run NDB storage engine
+bind-address=...                # listen address ip saat ini
+[mysql_cluster]
+# Options for NDB Cluster processes:
+ndb-connectstring=192.168.33.10  # location of management server
+```
 Merestart sistem
 ```
 $ sudo systemctl restart mysql
+```
+Mengaktifkan konfigurasi yang telah dibuat
+```
 $ sudo systemctl enable mysql
 ```
 
