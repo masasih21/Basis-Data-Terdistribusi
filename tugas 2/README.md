@@ -5,11 +5,11 @@ Secara definisi partisi tabel adalah memecah tabel menjadi beberapa bagian/segme
 ## Pendahuluan
 Sebelum melakukan testing partisi tabel, mengimport database baru pada node service
 ```
-mysql -u root -p -t < /vagrant/test.sql
+$ mysql -u root -p -t < /vagrant/test.sql
 ```
 Untuk mengecek database telah terimport dengan baik pada node service yg ditunjuk, masuk pada mysql prompt:
 ```
-mysql -u root -p
+$ mysql -u root -p
 ```
 ```
 mysql> show databases;
