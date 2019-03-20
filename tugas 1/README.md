@@ -298,9 +298,11 @@ Mengecek status
 mysql> SHOW ENGINE NDB STATUS \G
 ```
 Pada manager
+
 ![clust5](screenshot/clust5.png)
 
 Pada data1
+
 ![clust6](screenshot/clust6.png)
 
 Mengecek data dan service node yang terhubung
