@@ -504,6 +504,11 @@ Menggunakan tools lain
 
 ![hMS](screenshot/hMS.png)
 
+Untuk menjalankan proses dari MySQL server (data1) yang sebelumnya dihentikan
+```
+systemctl start mysql
+```
+
 ## Referensi
 https://www.digitalocean.com/community/tutorials/how-to-create-a-multi-node-mysql-cluster-on-ubuntu-18-04
 https://www.digitalocean.com/community/tutorials/how-to-use-proxysql-as-a-load-balancer-for-mysql-on-ubuntu-16-04#step-8-—-verifying-the-proxysql-configuration
