@@ -487,6 +487,7 @@ select @@hostname
 ![hDM](screenshot/hDM.png)
 
 Menggunakan tools lain
+
 ![hDS](screenshot/hDS.png)
 
 Menghentikan salah satu proses dari MySQL server (data1)
@@ -494,6 +495,14 @@ Menghentikan salah satu proses dari MySQL server (data1)
 systemctl stop mysql
 ```
 ![onshun](screenshot/onshun.png)
+
+Mengecek kembali hostname server yang melayani
+
+![hMM](screenshot/hMM.png)
+
+Menggunakan tools lain
+
+![hMS](screenshot/hMS.png)
 
 ## Referensi
 https://www.digitalocean.com/community/tutorials/how-to-create-a-multi-node-mysql-cluster-on-ubuntu-18-04
