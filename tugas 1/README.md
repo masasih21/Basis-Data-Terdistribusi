@@ -480,7 +480,7 @@ Masuk menggunakan ```bdtuser```
 ```
 $ mysql -u bdtuser -p -h 127.0.0.1 -P 6033 --prompt='ProxySQLClient> '
 ```
-Melihat hostname server yang melayani
+Melihat hostname server yang melayani adalah ```data1```
 ```
 select @@hostname
 ```
@@ -496,7 +496,7 @@ systemctl stop mysql
 ```
 ![onshun](screenshot/onshun.png)
 
-Mengecek kembali hostname server yang melayani
+Mengecek kembali hostname server yang melayani berubah menjadi ```manager```
 
 ![hMM](screenshot/hMM.png)
 
