@@ -40,7 +40,7 @@ Mengedit isi file ```config.ini```
 ```
 $ sudo nano /var/lib/mysql-cluster/config.ini
 ```
-Berikut isi ```config.ini```
+Berikut isi ```config.ini```:
 ```
 [ndbd default]
 # Options affecting ndbd processes on all data nodes:
@@ -78,21 +78,38 @@ Menjalankan manager dengan ```mdb_mgmd``` dan config file dengan ```-f```
 ```
 $ sudo ndb_mgmd -f /var/lib/mysql-cluster/config.ini
 ```
+![successM](screenshot/successM.png)
+
 Mematikan server yang masih berjalan
 ```
 $ sudo pkill -f ndb_mgmd
 ```
-![successM](screenshot/successM.png)
-
-Mengedit ndb_mgmd.service
+Mengedit ```ndb_mgmd.service```
 ```
 $ sudo nano /etc/systemd/system/ndb_mgmd.service
 ```
-Berikut isinya :
----
-Mereload sistem
+Berikut isinya:
+```
+[Unit]
+Description=MySQL NDB Cluster Management Server
+After=network.target auditd.service
+
+[Service]
+Type=forking
+ExecStart=/usr/sbin/ndb_mgmd -f /var/lib/mysql-cluster/config.ini
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+```
+Mereload sistem manager menggunakan ```daemon-reload```
 ```
 $ sudo systemctl daemon-reload
+```
+Mengaktifkan service yang telah dibuat
+```
 $ sudo systemctl enable ndb_mgmd
 ```
 Menjalankan service
@@ -108,7 +125,6 @@ Hasil :
 
 Memberikan akses untuk koneksi dari luar
 ```
-$ sudo ufw allow from 192.168.33.10
 $ sudo ufw allow from 192.168.33.11
 $ sudo ufw allow from 192.168.33.12
 $ sudo ufw allow from 192.168.33.13
