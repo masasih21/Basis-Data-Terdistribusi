@@ -284,28 +284,31 @@ Mengaktifkan konfigurasi yang telah dibuat
 $ sudo systemctl enable mysql
 ```
 
-### 5.	Verifikasi cluster
-Masuk pada API node (192.168.33.10, 192.168.33.11) .
+### 5.	Verifikasi Instalasi MySQL Cluster
+Masuk pada API node (192.168.33.10, 192.168.33.11)
 
-Menjalankan :
+Menjalankan:
 ```
 $ mysql -u root –p
 ```
-Masukkan password : admin
+Masukkan password : ```admin```
 
-Mengecek status :
+Mengecek status
 ```
 mysql> SHOW ENGINE NDB STATUS \G
 ```
-Hasil :
----
+Pada manager
+![clust5](screenshot/clust5.png)
+
+Pada data1
+![clust6](screenshot/clust6.png)
+
 Mengecek data dan service node yang terhubung
 ```
 $ ndb_mgm
 ndb_mgm> SHOW
 ```
-Hasil :
----
+![connect](screenshot/connect.png)
 
 ### 6.	Instalasi ProxySQL
 Masuk pada proxy (192.168.33.14) , pada direktori /tmp download package berikut :
