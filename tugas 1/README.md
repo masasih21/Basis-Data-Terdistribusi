@@ -23,7 +23,7 @@ $ vagrant ssh (nama server)
 ```
 
 ##### 2.	Instalasi dan Konfigurasi Cluster Manager
-Masuk pada ```manager``` (192.168.33.10) dan mendownload package
+Masuk pada ```manager``` (192.168.33.10) dan mengunduh package
 ```
 $ cd ~
 $ wget https://dev.mysql.com/get/Downloads/MySQL-Cluster-7.6/mysql-cluster-community-management-server_7.6.6-1ubuntu18.04_amd64.deb
@@ -131,27 +131,31 @@ $ sudo ufw allow from 192.168.33.14
 ```
 
 ##### 3.	Instalasi dan Konfigurasi Data Node
-Masuk pada data node / clusterdb (192.168.33.11, 192.168.33.12, 192.168.33.13) dan men download package berikut :
+Masuk pada data node atau ```data``` (192.168.33.11, 192.168.33.12, 192.168.33.13) dan mengunduh package
 ```
 $ cd ~
 $ wget https://dev.mysql.com/get/Downloads/MySQL-Cluster-7.6/mysql-cluster-community-data-node_7.6.6-1ubuntu18.04_amd64.deb
 ```
-Menginstall dependency :
+Menginstall dependency ```libclass-methodmaker-perl```
 ```
 $ sudo apt update
 $ sudo apt install libclass-methodmaker-perl
 ```
-Menginstall data node binary :
+Menginstall data node binary menggunakan ```dpkg```
 ```
 $ sudo dpkg -i mysql-cluster-community-data-node_7.6.6-1ubuntu18.04_amd64.deb
 ```
-Mengedit isi /etc/my.cnf
+Mengedit isi ```/etc/my.cnf```
 ```
 $ sudo nano /etc/my.cnf
 ```
 Berikut isi my.cnf :
----
-Membuat direktori :
+```
+[mysql_cluster]
+# Options for NDB Cluster processes:
+ndb-connectstring=192.168.33.10  # location of cluster manager
+```
+Membuat direktori
 ```
 $ sudo mkdir -p /usr/local/mysql/data
 ```
