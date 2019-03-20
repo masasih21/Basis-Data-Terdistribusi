@@ -364,23 +364,27 @@ $ systemctl status proxysql
 ![runp](screenshot/runp.png)
 
 ### 8.	Setting password untuk ProxySQL Administrator
-Pada proxy, jalankan :
-
+Pada ```proxy``` masuk ```ProxySQLAdmin``` prompt
 ```
 $ mysql -u admin -p -h 127.0.0.1 -P 6032 --prompt='ProxySQLAdmin> '
-
+```
+Mengubah password
+```
 ProxySQLAdmin> UPDATE global_variables SET variable_value= 'admin:password' WHERE variable_name='admin-admin_credentials';
 ProxySQLAdmin> LOAD ADMIN VARIABLES TO RUNTIME;
 ProxySQLAdmin> SAVE ADMIN VARIABLES TO DISK;
 ```
 
 ### 9.	Konfigurasi Monitoring di MySQL
-Pada salah satu MySQL node, jalankan :
+Pada service node (192.168.33.19, 192.168.33.11), mengunduh file
 ```
 $ curl -OL https://gist.github.com/lefred/77ddbde301c72535381ae7af9f968322/raw/5e40b03333a3c148b78aa348fd2cd5b5dbb36e4d/addition_to_sys.sql
+```
+Menjalankan command file
+```
 $ mysql -u root -p < addition_to_sys.sql
 ```
-Masuk pada MySQL
+Masuk pada MySQL prompt
 ```
 $ mysql -u root –p
 ```
@@ -392,7 +396,9 @@ mysql> FLUSH PRIVILEGES;
 ```
 
 ### 10.	Konfigurasi Monitoring di ProxySQL
-Pada proxy, jalankan :
+Pada ```proxy```
+
+Mengupdate user baru
 ```
 ProxySQLAdmin> UPDATE global_variables SET variable_value='monitor' WHERE variable_name='mysql-monitor_username';
 ProxySQLAdmin> LOAD MYSQL VARIABLES TO RUNTIME;
@@ -400,7 +406,7 @@ ProxySQLAdmin> SAVE MYSQL VARIABLES TO DISK;
 ```
 
 ### 11.	Menambahkan node MySQL ke server Proxy
-Pada proxy, membuat baris baru dengan variable dan value pada mysql_group replication_hostgroups
+Pada ```proxy```, membuat baris baru dengan variable dan value pada ```mysql_group_replication_hostgroups```
 ```
 ProxySQLAdmin> INSERT INTO mysql_group_replication_hostgroups (writer_hostgroup, backup_writer_hostgroup, reader_hostgroup, offline_hostgroup, active, max_writers, writer_is_also_reader, max_transactions_behind) VALUES (2, 4, 3, 1, 1, 3, 1, 100);
 ```
@@ -415,8 +421,7 @@ Mengecek hostgroup
 ```
 ProxySQLAdmin> SELECT hostgroup_id, hostname, status FROM runtime_mysql_servers;
 ```
-Hasil :
----
+![onon](screenshot/onon.png)
 
 ### 12.	Membuat user MySQL
 ```
