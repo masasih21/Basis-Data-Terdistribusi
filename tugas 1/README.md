@@ -3,16 +3,19 @@
 ### A.	Model Arsitektur
 Sistem ini terdiri dari sebuah NDB Manager, 3 buah Data Node, 2 buah MySQL API Node, dan sebuah ProxySQL sebagai Load Balancer.
 Berikut adalah pembagian IP beserta hostname yang digunakan:
-* 192.168.33.10		NDB Manager dan API Node		->	manager
-* 192.168.33.11		Data Node dan API Node		->	clusterdb1
-* 192.168.33.12		Data Node				->	clusterdb2
-* 192.168.33.13		Data Node				->	clusterdb3
-* 192.168.33.14		ProxySQL				->	proxy
+
+| IP            | Nama                      | hostname  |
+|---------------|---------------------------|-----------|
+| 192.168.33.10	|	NDB Manager dan API Node	| manager   |
+| 192.168.33.11	|	Data Node dan API Node		| data1     |
+| 192.168.33.12	|	Data Node				          | data2     |
+| 192.168.33.13	|	Data Node				          | data3     |
+| 192.168.33.14	|	ProxySQL				          | proxy     |
 
 ### B.	Implementasi
 ##### 1.	Konfigurasi Awal
-Konfigurasi awal dilakukan pada Vagrantfile.
-Menjalankannya :
+Langkah awal dilakukan pada Vagrantfile.
+Cara menjalankannya:
 ```
 $ cd (direktori)
 $ vagrant up
@@ -20,24 +23,24 @@ $ vagrant ssh (nama server)
 ```
 
 ##### 2.	Instalasi dan Konfigurasi Cluster Manager
-Masuk pada manager (192.168.33.10) dan men download package berikut :
+Masuk pada ```manager``` (192.168.33.10) dan mendownload package
 ```
 $ cd ~
 $ wget https://dev.mysql.com/get/Downloads/MySQL-Cluster-7.6/mysql-cluster-community-management-server_7.6.6-1ubuntu18.04_amd64.deb
 ```
-Menginstall ndb_mgdb :
+Menginstall ```ndb_mgdb``` menggunakan ```dpkg```
 ```
 $ sudo dpkg -i mysql-cluster-community-management-server_7.6.6-1ubuntu18.04_amd64.deb
 ```
-Membuat direktori /var/lib/mysql-cluster
+Membuat direktori ```/var/lib/mysql-cluster```
 ```
 $ sudo mkdir /var/lib/mysql-cluster
-```
-Mengedit isi file confg.ini
+```i
+Mengedit isi file ```config.ini```
 ```
 $ sudo nano /var/lib/mysql-cluster/config.ini
 ```
-Berikut isi config ini :
+Berikut isi ```config.ini```
 ```
 [ndbd default]
 # Options affecting ndbd processes on all data nodes:
@@ -71,7 +74,7 @@ hostname=192.168.33.10 # In our case the MySQL server/client is on the same Drop
 # SQL node options:
 hostname=192.168.33.10
 ```
-Menjalankan mdb_mgmd
+Menjalankan manager dengan ```mdb_mgmd``` dan config file dengan ```-f```
 ```
 $ sudo ndb_mgmd -f /var/lib/mysql-cluster/config.ini
 ```
