@@ -35,7 +35,7 @@ $ sudo dpkg -i mysql-cluster-community-management-server_7.6.6-1ubuntu18.04_amd6
 Membuat direktori ```/var/lib/mysql-cluster```
 ```
 $ sudo mkdir /var/lib/mysql-cluster
-```i
+```
 Mengedit isi file ```config.ini```
 ```
 $ sudo nano /var/lib/mysql-cluster/config.ini
@@ -82,6 +82,8 @@ Mematikan server yang masih berjalan
 ```
 $ sudo pkill -f ndb_mgmd
 ```
+![successM](screenshot/successM.png)
+
 Mengedit ndb_mgmd.service
 ```
 $ sudo nano /etc/systemd/system/ndb_mgmd.service
