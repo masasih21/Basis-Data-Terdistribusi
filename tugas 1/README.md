@@ -312,7 +312,34 @@ ndb_mgm> SHOW
 ```
 ![connect](screenshot/connect.png)
 
-### 6.	Instalasi ProxySQL
+### 6. Menambahkan Data pada MySQL Cluster
+Mmebuat database ```clustertest```
+```
+mysql> CREATE DATABASE clustertest;
+```
+![database](screenshot/database.png)
+
+Pindah ke database tadi
+```
+mysql>  USE clustertest
+```
+Membuat tabel sederhana bernama ```test_table```
+```
+mysql> CREATE TABLE test_table (name VARCHAR(20), value VARCHAR(20)) ENGINE=ndbcluster;
+```
+![table](screenshot/table.png)
+
+Menambahkan data
+```
+mysql> INSERT INTO test_table (name,value) VALUES('some_name','some_value');
+```
+Melihat isi tabel
+```
+mysql> SELECT * FROM test_table;
+```
+![data](screenshot/data.png)
+
+### 7. Instalasi ProxySQL
 Masuk pada proxy (192.168.33.14) , pada direktori /tmp download package berikut :
 ```
 $ cd /tmp
@@ -336,7 +363,7 @@ $ systemctl status proxysql
 Hasil :
 ---
 
-### 7.	Setting password untuk ProxySQL Administrator
+### 8.	Setting password untuk ProxySQL Administrator
 Pada proxy, jalankan :
 
 ```
@@ -347,7 +374,7 @@ ProxySQLAdmin> LOAD ADMIN VARIABLES TO RUNTIME;
 ProxySQLAdmin> SAVE ADMIN VARIABLES TO DISK;
 ```
 
-### 8.	Konfigurasi Monitoring di MySQL
+### 9.	Konfigurasi Monitoring di MySQL
 Pada salah satu MySQL node, jalankan :
 ```
 $ curl -OL https://gist.github.com/lefred/77ddbde301c72535381ae7af9f968322/raw/5e40b03333a3c148b78aa348fd2cd5b5dbb36e4d/addition_to_sys.sql
@@ -364,7 +391,7 @@ mysql> GRANT SELECT on sys.* to 'monitor'@'%';
 mysql> FLUSH PRIVILEGES;
 ```
 
-### 9.	Konfigurasi Monitoring di ProxySQL
+### 10.	Konfigurasi Monitoring di ProxySQL
 Pada proxy, jalankan :
 ```
 ProxySQLAdmin> UPDATE global_variables SET variable_value='monitor' WHERE variable_name='mysql-monitor_username';
@@ -372,7 +399,7 @@ ProxySQLAdmin> LOAD MYSQL VARIABLES TO RUNTIME;
 ProxySQLAdmin> SAVE MYSQL VARIABLES TO DISK;
 ```
 
-### 10.	Menambahkan node MySQL ke server Proxy
+### 11.	Menambahkan node MySQL ke server Proxy
 Pada proxy, membuat baris baru dengan variable dan value pada mysql_group replication_hostgroups
 ```
 ProxySQLAdmin> INSERT INTO mysql_group_replication_hostgroups (writer_hostgroup, backup_writer_hostgroup, reader_hostgroup, offline_hostgroup, active, max_writers, writer_is_also_reader, max_transactions_behind) VALUES (2, 4, 3, 1, 1, 3, 1, 100);
@@ -391,7 +418,7 @@ ProxySQLAdmin> SELECT hostgroup_id, hostname, status FROM runtime_mysql_servers;
 Hasil :
 ---
 
-### 11.	Membuat user MySQL
+### 12.	Membuat user MySQL
 ```
 mysql> CREATE USER 'bdt'@'%' IDENTIFIED BY 'bdt';
 mysql> GRANT ALL PRIVILEGES on test.* to 'bdt'@'%';
@@ -399,7 +426,7 @@ mysql> FLUSH PRIVILEGES
 mysql> EXIT;
 ```
 
-### 12.	Membuat user ProxySQL
+### 13.	Membuat user ProxySQL
 ```
 ProxySQLAdmin> INSERT INTO mysql_users(username, password, default_hostgroup) VALUES ('bdt', 'bdt', 2);
 ProxySQLAdmin> LOAD ADMIN VARIABLES TO RUNTIME;
