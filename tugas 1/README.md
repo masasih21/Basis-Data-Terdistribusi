@@ -473,6 +473,16 @@ mysql> show tables;
 ```
 ![tb](screenshot/tb.png)
 
+Memberikan akses grup replikasi untuk database ```sakila```
+```
+mysql> GRANT ALL PRIVILEGES on sakila.* to 'bdt'@'%';
+```
+Menyimpan perubahan
+```
+mysql> FLUSH PRIVILEGES
+mysql> EXIT;
+```
+
 ## D.	Tes Koneksi Keluar
 Masuk menggunakan ```bdtuser```
 ```
