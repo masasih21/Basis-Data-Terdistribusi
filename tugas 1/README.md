@@ -163,14 +163,15 @@ Memulai data node
 ```
 $ sudo ndbd
 ```
-Hasil :
----
-Pada clusterdb1
----
-Pada clusterdb2
----
-Pada clusterdb3
----
+Pada data1
+![ndbd1](screenshot/ndbd1.png)
+
+Pada data2
+![ndbd2](screenshot/ndbd2.png)
+
+Pada data3
+![ndbd3](screenshot/ndbd3.png)
+
 Memberikan akses untuk koneksi dari luar
 ```
 $ sudo ufw allow from 192.168.33.10
@@ -179,19 +180,36 @@ $ sudo ufw allow from 192.168.33.12
 $ sudo ufw allow from 192.168.33.13
 $ sudo ufw allow from 192.168.33.14
 ```
-Mematikan proses mdbd masih berjalan
+Mematikan proses ```ndbd``` yang masih berjalan
 ```
 $ sudo pkill -f ndbd
 ```
-Mengedit ndbd.service
+Mengedit ```ndbd.service```
 ```
 $ sudo nano /etc/systemd/system/ndbd.service
 ```
-Berikut isinya :
----
-Mereload sistem
+Berikut isinya:
+```
+[Unit]
+Description=MySQL NDB Data Node Daemon
+After=network.target auditd.service
+
+[Service]
+Type=forking
+ExecStart=/usr/sbin/ndbd
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+```
+Mereload sistem dengan menggunakan ```daemon-reload```
 ```
 $ sudo systemctl daemon-reload
+```
+Mengaktifkan service yang telah dibuat
+```
 $ sudo systemctl enable ndbd
 ```
 Menjalankan service
@@ -202,14 +220,14 @@ Mengecek status
 ```
 $ sudo systemctl status ndbd
 ```
-Hasil :
----
-Pada clusterdb1
----
-Pada clusterdb2
----
-Pada clusterdb3
----
+Pada data1
+![rund1](screenshot/rund1.png)
+
+Pada data2
+![rund2](screenshot/rund2.png)
+
+Pada data3
+![rund3](screenshot/rund3.png)
 
 ##### 4.	Konfigurasi MySQL Server dan Client
 Masuk pada API node (192.168.33.10, 192.168.33.11) dan mendownload package berikut :
