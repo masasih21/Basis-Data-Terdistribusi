@@ -6,4 +6,4 @@ Kunjungi laman berikut : [sign up for MongoDB Atlas](https://cloud.mongodb.com/u
 Isi form sesuai dengan petunjuk lalu klik ```continue``` dan selesaikan proses pendaftaran.
 
 Jika berhasil maka akan tampil halaman berikut:
-![cluster00](screenshot/cluster00)
+![cluster00](/screenshot/cluster00)
