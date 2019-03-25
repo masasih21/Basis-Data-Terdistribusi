@@ -74,6 +74,10 @@ mongoimport --host cluster0-shard-00-00-ivehb.mongodb.net:27017 --db emoji --typ
 ```
 ![import](screenshot/import.png)
 
+Kembali pada laman MongoDB, jika berhasil maka akan terjadi perubahan pada ```Metric```
+
+![hasil](screenshot/hasil.png)
+
 ## 4. Akses Data dengan Shell Mongo
 Kembali pada laman MongoDB, pada cluster yang telah ada klik ```connect```
 
@@ -148,3 +152,14 @@ Jika benar maka akan tampil:
 
 Isikan ```password```, lalu klik ```CONNECT```
 
+Jika sudah berhasil, muncul data database yang telah terbentuk pada cluster tersebut
+
+![compass05](screenshot/compass05.png)
+
+Klik pada database emoji, akan tampil collections dari database tersebut
+
+![compass06](screenshot/compass06.png)
+
+Klik pada collections maka akan tampil data
+
+![compass07](screenshot/compass07.png)
