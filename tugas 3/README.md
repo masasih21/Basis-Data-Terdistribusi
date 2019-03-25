@@ -63,11 +63,15 @@ Maka akan tampil hasil berikut:
 
 ![cluster09](screenshot/cluster09.png)
 
-## Mengimport Database
+## 3. Mengimport Database
 Database yang digunakan dalam tugas ini adalah database [emoji](https://www.kaggle.com/rtatman/emojinet)
 
 Buka shell mongodb, mengimport database
 ```
 mongoimport --host cluster0-shard-00-00-ivehb.mongodb.net:27017 --db emoji --type json --file ~/Downloads/emojis.json --jsonArray --authenticationDatabase admin --ssl --username masasih21 --password 17102016
 ```
-![shell01](screenshot/shell01.png)
+![import](screenshot/import.png)
+
+## 4. Akses Data dengan Shell MongoDB
+
+
