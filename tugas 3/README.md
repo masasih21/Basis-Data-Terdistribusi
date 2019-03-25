@@ -68,7 +68,15 @@ Maka akan tampil hasil berikut:
 ## 3. Mengimport Database
 Database yang digunakan dalam tugas ini adalah database [emoji](https://www.kaggle.com/rtatman/emojinet)
 
-Buka shell mongo, mengimport database
+Buka shell mongo, jalankan mongod
+```
+mongod
+```
+Buka terminal lain, jalankan mongo
+```
+mongo
+```
+Mengimport database
 ```
 mongoimport --host cluster0-shard-00-00-ivehb.mongodb.net:27017 --db emoji --type json --file ~/Downloads/emojis.json --jsonArray --authenticationDatabase admin --ssl --username masasih21 --password 17102016
 ```
