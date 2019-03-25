@@ -166,5 +166,4 @@ Klik pada collections maka akan tampil data
 
 ## Referensi
 https://docs.mongodb.com/manual/
-
-https://www.youtube.com/watch?v=tpz-6Trd1UI
+ https://www.youtube.com/watch?v=tpz-6Trd1UI
