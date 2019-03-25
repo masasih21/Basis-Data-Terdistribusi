@@ -4,9 +4,11 @@
 Sebelum melakukan implementasi MongoDB, download file [MongoDB Community Server](https://www.mongodb.com/download-center/community?jmp=docs) lalu install.
 
 ## 1. Registrasi MongoDB Atlas
-Kunjungi laman berikut : [sign up for MongoDB Atlas](https://cloud.mongodb.com/user#/atlas/register/accountProfile)
+Kunjungi laman berikut : [sign up for MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
 
-Isi form sesuai dengan petunjuk lalu klik ```continue``` dan selesaikan proses pendaftaran.
+Isi form sesuai dengan petunjuk lalu klik ```Get started free``` dan selesaikan proses pendaftaran.
+
+![start](screenshot/start.png)
 
 Jika berhasil maka akan tampil halaman berikut:
 
@@ -66,12 +68,83 @@ Maka akan tampil hasil berikut:
 ## 3. Mengimport Database
 Database yang digunakan dalam tugas ini adalah database [emoji](https://www.kaggle.com/rtatman/emojinet)
 
-Buka shell mongodb, mengimport database
+Buka shell mongo, mengimport database
 ```
 mongoimport --host cluster0-shard-00-00-ivehb.mongodb.net:27017 --db emoji --type json --file ~/Downloads/emojis.json --jsonArray --authenticationDatabase admin --ssl --username masasih21 --password 17102016
 ```
 ![import](screenshot/import.png)
 
-## 4. Akses Data dengan Shell MongoDB
+## 4. Akses Data dengan Shell Mongo
+Kembali pada laman MongoDB, pada cluster yang telah ada klik ```connect```
 
+![connect](screenshot/connect.png)
+
+Pilih ```Connect with the Mongo Shell```
+
+Menyalin connection string yang telah disediakan
+
+![shell01](screenshot/shell01.png)
+
+Pada shell mongo, jalankan connection yang tadi telah dicopy
+```
+mongo "mongodb+srv://cluster0-ivehb.mongodb.net/test" --username masasih21
+```
+
+Isikan password
+
+Maka akan muncul prompt :
+```
+MongoDB Enterprise Cluster0-shard-0:PRIMARY>
+```
+
+Untuk melihat daftar database yang telah dibuat
+```
+show databases
+```
+![shell02](screenshot/shell02.png)
+
+Pindah ke database ```emoji```
+```
+use emoji
+```
+![shell03](screenshot/shell03.png)
+
+Melihat koleksi dari database emoji
+```
+show collections
+```
+![shell04](screenshot/shell04.png)
+
+Melihat data
+```
+db.emojis.find()
+```
+![shell05](screenshot/shell05.png)
+
+## 5. Akses Data dengan MongoDB Compass
+Membuka MongoDB Compass, berikut tapilan awal dari MongoDB Compass
+
+![compass01](screenshot/compass01.png)
+
+Kembali pada laman MongoDB, pada cluster yang telah ada klik ```connect```
+
+![connect](screenshot/connect.png)
+
+Pilih ```Connect with MongoDB Compass```
+
+Menyalin connection string yang telah disediakan
+
+![compass02](screenshot/compass02.png)
+
+Kembali pada MongoDB Compass, connection string otomatis akan terdeteksi
+
+![compass03](screenshot/compass03.png)
+
+Klik ```Yes```
+
+Jika benar maka akan tampil:
+
+![compass04](screenshot/compass04.png)
+
+Isikan ```password```, lalu klik ```CONNECT```
 
