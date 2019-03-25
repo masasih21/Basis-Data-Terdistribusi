@@ -163,3 +163,7 @@ Klik pada database emoji, akan tampil collections dari database tersebut
 Klik pada collections maka akan tampil data
 
 ![compass07](screenshot/compass07.png)
+
+## Referensi
+https://docs.mongodb.com/manual/
+https://www.youtube.com/watch?v=tpz-6Trd1UI
