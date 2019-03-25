@@ -45,11 +45,11 @@ Maka akan tampil hasil berikut:
 
 Pilih sub tab ```IP Whitelist```
 
-Tambahkan user dengan mengklik ```ADD IP ADDRESS```
+Tambahkan IP dengan mengklik ```ADD IP ADDRESS```
 
 ![cluster06](screenshot/cluster06.png)
 
-Akan tapil modal berikut:
+Akan tampil modal
 
 ![cluster07](screenshot/cluster07.png)
 
@@ -96,7 +96,7 @@ mongo "mongodb+srv://cluster0-ivehb.mongodb.net/test" --username masasih21
 
 Isikan password
 
-Maka akan muncul prompt :
+Maka akan muncul prompt:
 ```
 MongoDB Enterprise Cluster0-shard-0:PRIMARY>
 ```
