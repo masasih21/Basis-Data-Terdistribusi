@@ -72,7 +72,7 @@ hostname=192.168.33.10 # In our case the MySQL server/client is on the same Drop
 
 [mysqld]
 # SQL node options:
-hostname=192.168.33.10
+hostname=192.168.33.11
 ```
 Menjalankan manager dengan ```mdb_mgmd``` dan config file dengan ```-f```
 ```
@@ -239,7 +239,7 @@ Pada data3
 Masuk pada API node (192.168.33.10, 192.168.33.11) dan mengunduh package
 ```
 $ cd ~
-$ wget https://dev.mysql.com/get/Downloads/MySQL-Cluster-7.6/mysql-cluster_7.6.6-1ubuntu18.04_amd64.deb
+$ wget https://dev.mysql.com/get/Downloads/MySQL-Cluster-7.6/mysql-cluster_7.6.6-1ubuntu18.04_amd64.deb-bundle.tar
 ```
 Membuat direktori
 ```
