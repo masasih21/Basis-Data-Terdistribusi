@@ -490,7 +490,7 @@ $ mysql -u bdtuser -p -h 127.0.0.1 -P 6033 --prompt='ProxySQLClient> '
 ```
 Melihat hostname server yang melayani adalah ```data1```
 ```
-select @@hostname
+select @@hostname;
 ```
 ![hDM](screenshot/hDM.png)
 
