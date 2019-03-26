@@ -253,7 +253,7 @@ Menginstall dependency komponen MySQL
 ```
 $ cd install
 $ sudo apt update
-$ sudo apt install libaiol libmecab2
+$ sudo apt install libaio1 libmecab2
 $ sudo dpkg -i mysql-common_7.6.6-1ubuntu18.04_amd64.deb
 $ sudo dpkg -i mysql-cluster-community-client_7.6.6-1ubuntu18.04_amd64.deb
 $ sudo dpkg -i mysql-client_7.6.6-1ubuntu18.04_amd64.deb
