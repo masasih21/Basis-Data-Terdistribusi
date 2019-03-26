@@ -376,7 +376,7 @@ ProxySQLAdmin> SAVE ADMIN VARIABLES TO DISK;
 ```
 
 ### 9.	Konfigurasi Monitoring di MySQL
-Pada service node (192.168.33.19, 192.168.33.11), mengunduh file
+Pada service node (192.168.33.10, 192.168.33.11), mengunduh file
 ```
 $ curl -OL https://gist.github.com/lefred/77ddbde301c72535381ae7af9f968322/raw/5e40b03333a3c148b78aa348fd2cd5b5dbb36e4d/addition_to_sys.sql
 ```
