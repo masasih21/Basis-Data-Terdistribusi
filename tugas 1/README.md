@@ -430,7 +430,7 @@ mysql> CREATE USER 'bdtuser'@'%' IDENTIFIED BY 'bdt';
 ```
 Memberikan akses grup replikasi untuk database ```clustertest```
 ```
-mysql> GRANT ALL PRIVILEGES on clustertest.* to 'bdt'@'%';
+mysql> GRANT ALL PRIVILEGES on clustertest.* to 'bdtuser'@'%';
 ```
 Menyimpan perubahan
 ```
