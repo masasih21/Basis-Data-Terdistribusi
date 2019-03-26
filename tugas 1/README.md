@@ -414,8 +414,8 @@ Menambahkan MySQL server (service node)
 ```
 ProxySQLAdmin> INSERT INTO mysql_servers(hostgroup_id, hostname, port) VALUES (2, '192.168.33.10', 3306);
 ProxySQLAdmin> INSERT INTO mysql_servers(hostgroup_id, hostname, port) VALUES (2, '192.168.33.11', 3306);
-ProxySQLAdmin> LOAD MYSQL VARIABLES TO RUNTIME;
-ProxySQLAdmin> SAVE MYSQL VARIABLES TO DISK;
+ProxySQLAdmin> LOAD MYSQL SERVERS TO RUNTIME;
+ProxySQLAdmin> SAVE MYSQL SERVERS TO DISK;
 ```
 Mengecek hostgroup
 ```
