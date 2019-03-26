@@ -434,7 +434,7 @@ mysql> GRANT ALL PRIVILEGES on clustertest.* to 'bdtuser'@'%';
 ```
 Menyimpan perubahan
 ```
-mysql> FLUSH PRIVILEGES
+mysql> FLUSH PRIVILEGES;
 mysql> EXIT;
 ```
 
@@ -442,8 +442,8 @@ mysql> EXIT;
 Pada ```proxy```
 ```
 ProxySQLAdmin> INSERT INTO mysql_users(username, password, default_hostgroup) VALUES ('bdtuser', 'bdt', 2);
-ProxySQLAdmin> LOAD ADMIN VARIABLES TO RUNTIME;
-ProxySQLAdmin> SAVE ADMIN VARIABLES TO DISK;
+ProxySQLAdmin> LOAD MYSQL USERS TO RUNTIME;
+ProxySQLAdmin> SAVE MYSQL USERS TO DISK;
 ```
 
 ## C.	Menyimpan Data pada MySQL Cluster
