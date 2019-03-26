@@ -343,7 +343,7 @@ mysql> SELECT * FROM test_table;
 Masuk pada ```proxy``` (192.168.33.14) , pada direktori ```/tmp``` unduh package
 ```
 $ cd /tmp
-$ curl –OL https://github.com/sysown/proxysql/releases/download/ v1.4.4/proxysql_1.4.4-ubuntu16_amd64.deb
+$ curl -OL https://github.com/sysown/proxysql/releases/download/v1.4.4/proxysql_1.4.4-ubuntu16_amd64.deb
 ```
 Menginstall package ```mysql-client```
 ```
