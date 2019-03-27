@@ -103,11 +103,17 @@ define('DB_HOST', '192.168.33.14:6033');
 
 
 Membuka ```192.168.33.14``` pada browser maka akan terlihat hasil seperti berikut:
+
 ![wp1](screenshot/wp1.png)
+
 ![wp1](screenshot/wp2.png)
+
 ![wp1](screenshot/wp3.png)
+
 ![wp1](screenshot/wp4.png)
+
 ![wp1](screenshot/wp5.png)
+
 ![wp1](screenshot/wp6.png)
 
 Jika berhasil maka database pada service node otomatis akan terupdate
@@ -115,6 +121,6 @@ Jika berhasil maka database pada service node otomatis akan terupdate
 mysql> use wordpress
 mysql> show tables;
 ```
-![tables](screenshot/tables.png)
+![tables](screenshot/table.png)
 
 ## JMeter
