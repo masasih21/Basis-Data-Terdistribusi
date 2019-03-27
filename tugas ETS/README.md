@@ -123,4 +123,13 @@ mysql> show tables;
 ```
 ![tables](screenshot/table.png)
 
-## JMeter
+## C. Simulasi Fail Over
+Mencoba mematikan salah satu service node
+```
+sudo service mysql stop
+```
+![5notconn](screenshot/5notconn)
+
+Meskipun salah satu service node dimatikan, data masih bisa berjalan dengan baik
+
+## D. JMeter
