@@ -12,12 +12,14 @@ Berikut adalah pembagian IP beserta hostname yang digunakan:
 | 192.168.33.13	|	Data Node				          | data3     |
 | 192.168.33.14	|	ProxySQL				          | proxy     |
 
-## B.	Instalasi Wordpress
+## B.	Implementasi
 ### 1.	Konfigurasi Awal
 Pada salah satu node data, dibuat database baru ```wordpress```
 ```
 mysql> CREATE DATABASE wordpress;
 ```
+![database](screenshot/database.png)
+
 Memberikan akses grup replikasi untuk database ```wordpress```
 ```
 mysql> GRANT ALL PRIVILEGES on wordpress.* to 'bdtuser'@'%';
@@ -28,6 +30,7 @@ mysql> FLUSH PRIVILEGES;
 mysql> EXIT;
 ```
 
+### 2.	Instalasi Apache dkk
 Menginstall apache dan beberapa ekstensi php pada ```proxySQL```
 ```
 sudo apt-get install apache2
@@ -35,7 +38,7 @@ sudo apt-get install php -y
 sudo apt-get install php-mysql
 sudo apt-get install -y php-gd php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-snmp php-soap php-tidy curl
 ```
-
+### 3.	Instalasi Wordpress
 Mengunduh package ```wordpress```
 ```
 cd /tmp
@@ -53,6 +56,8 @@ Memindah isi package ```wordpress``` untuk diletakkan pada folder html
 ```
 sudo mv wordpress/* /var/www/html
 ```
+![copy](screenshot/copy.png)
+
 Memberikan akses pada folder ```/var/www/html```
 ```
 sudo chown -R www-data:www-data /var/www/html
@@ -62,6 +67,7 @@ Menyimpan perubahan
 ```
 sudo service apache2 restart
 ```
+
 
 Menyalin ```schema.php``` ke luar agar mudah untuk diedit
 ```
@@ -73,6 +79,7 @@ Menyalin kembali ```schema.php yang telah diperbaharui
 ```
 cp /vagrant/schema.php /var/www/html/wp-admin/includes/
 ```
+
 
 Menyalin isi ```wp-config-sample.php``` ke dalam ```wp-config.php```
 ```
@@ -94,5 +101,20 @@ define('DB_HOST', '192.168.33.14:6033');
 ...
 ```
 
-Membuka ```192.168.33.14``` pada browser maka akan terlihat hasil seperti berikut:
 
+Membuka ```192.168.33.14``` pada browser maka akan terlihat hasil seperti berikut:
+![wp1](screenshot/wp1.png)
+![wp1](screenshot/wp2.png)
+![wp1](screenshot/wp3.png)
+![wp1](screenshot/wp4.png)
+![wp1](screenshot/wp5.png)
+![wp1](screenshot/wp6.png)
+
+Jika berhasil maka database pada service node otomatis akan terupdate
+```
+mysql> use wordpress
+mysql> show tables;
+```
+![tables](screenshot/tables.png)
+
+## JMeter
