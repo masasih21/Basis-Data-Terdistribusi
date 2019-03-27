@@ -44,7 +44,7 @@ Mengunduh package ```wordpress```
 cd /tmp
 wget -c http://wordpress.org/latest.tar.gz
 ```
-Mengektrak package yang ```wordpress```
+Mengekstrak package ```wordpress```
 ```
 tar -xzvf latest.tar.gz
 ```
@@ -75,7 +75,7 @@ cp /var/www/html/wp-admin/includes/schema.php /vagrant
 ```
 Menambahkan ```ENGINE=ndbcluster``` pada schema wordpress yang telah ada. Simpan perubahan.
 
-Menyalin kembali ```schema.php yang telah diperbaharui
+Menyalin kembali ```schema.php``` yang telah diperbaharui
 ```
 cp /vagrant/schema.php /var/www/html/wp-admin/includes/
 ```
