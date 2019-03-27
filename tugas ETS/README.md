@@ -133,3 +133,4 @@ sudo service mysql stop
 Meskipun salah satu service node dimatikan, data masih bisa berjalan dengan baik
 
 ## D. JMeter
+![j](screenshot/j.png)
