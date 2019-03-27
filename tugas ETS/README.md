@@ -128,7 +128,7 @@ Mencoba mematikan salah satu service node
 ```
 sudo service mysql stop
 ```
-![5notconn](screenshot/5notconn)
+![5notconn](screenshot/5notconn.png)
 
 Meskipun salah satu service node dimatikan, data masih bisa berjalan dengan baik
 
