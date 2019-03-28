@@ -270,7 +270,8 @@ Tambahan isi pada ```my.cnf```:
 [mysqld]
 # Options for mysqld process:
 ndbcluster                      # run NDB storage engine
-bind-address=...                # listen address ip saat ini
+bind-address=192.168.33.1#      # listen address ip saat ini
+
 [mysql_cluster]
 # Options for NDB Cluster processes:
 ndb-connectstring=192.168.33.10  # location of management server
