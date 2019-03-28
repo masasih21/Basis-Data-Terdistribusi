@@ -33,57 +33,58 @@ mysql> EXIT;
 ### 2.	Instalasi Apache dkk
 Menginstall apache dan beberapa ekstensi php pada ```proxySQL```
 ```
-sudo apt-get install apache2
-sudo apt-get install php -y
-sudo apt-get install php-mysql
-sudo apt-get install -y php-gd php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-snmp php-soap php-tidy curl
+$ sudo apt-get update
+$ sudo apt-get install apache2
+$ sudo apt-get install php -y
+$ sudo apt-get install php-mysql
+$ sudo apt-get install -y php-gd php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-snmp php-soap php-tidy curl
 ```
 ### 3.	Instalasi Wordpress
 Mengunduh package ```wordpress```
 ```
-cd /tmp
-wget -c http://wordpress.org/latest.tar.gz
+$ cd /tmp
+$ wget -c http://wordpress.org/latest.tar.gz
 ```
 Mengekstrak package ```wordpress```
 ```
-tar -xzvf latest.tar.gz
+$ tar -xzvf latest.tar.gz
 ```
 Menghapus file ```index.html``` pada ```/var/www/html```
 ```
-sudo rm /var/www/html/*
+$ sudo rm /var/www/html/*
 ```
 Memindah isi package ```wordpress``` untuk diletakkan pada folder html
 ```
-sudo mv wordpress/* /var/www/html
+$ sudo mv wordpress/* /var/www/html
 ```
 ![copy](screenshot/copy.png)
 
 Memberikan akses pada folder ```/var/www/html```
 ```
-sudo chown -R www-data:www-data /var/www/html
-sudo chmod -R 755 /var/www/html
+$ sudo chown -R www-data:www-data /var/www/html
+$ sudo chmod -R 755 /var/www/html
 ```
 Menyimpan perubahan
 ```
-sudo service apache2 restart
+$ sudo service apache2 restart
 ```
 
 
 Menyalin ```schema.php``` ke luar agar mudah untuk diedit
 ```
-cp /var/www/html/wp-admin/includes/schema.php /vagrant
+$ cp /var/www/html/wp-admin/includes/schema.php /vagrant
 ```
 Menambahkan ```ENGINE=ndbcluster``` pada schema wordpress yang telah ada. Simpan perubahan.
 
 Menyalin kembali ```schema.php``` yang telah diperbaharui
 ```
-cp /vagrant/schema.php /var/www/html/wp-admin/includes/
+$ cp /vagrant/schema.php /var/www/html/wp-admin/includes/
 ```
 
 
 Menyalin isi ```wp-config-sample.php``` ke dalam ```wp-config.php```
 ```
-cp wp-config-sample.php wp-config.php
+$ cp wp-config-sample.php wp-config.php
 ```
 Mengedit isi file ```wp-config.php```
 ```
@@ -126,7 +127,7 @@ mysql> show tables;
 ## C. Simulasi Fail Over
 Mencoba mematikan salah satu service node
 ```
-sudo service mysql stop
+$ sudo service mysql stop
 ```
 ![5notconn](screenshot/5notconn.png)
 
