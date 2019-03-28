@@ -78,7 +78,7 @@ Menambahkan ```ENGINE=ndbcluster``` pada schema wordpress yang telah ada. Simpan
 
 Menyalin kembali ```schema.php``` yang telah diperbaharui
 ```
-$ cp /vagrant/schema.php /var/www/html/wp-admin/includes/
+$ sudo cp /vagrant/schema.php /var/www/html/wp-admin/includes/
 ```
 
 
