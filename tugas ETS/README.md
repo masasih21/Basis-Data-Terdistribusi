@@ -81,7 +81,10 @@ Menyalin kembali ```schema.php``` yang telah diperbaharui
 $ sudo cp /vagrant/schema.php /var/www/html/wp-admin/includes/
 ```
 
-
+Pindah ke direktori html
+```
+cd /var/www/html
+```
 Menyalin isi ```wp-config-sample.php``` ke dalam ```wp-config.php```
 ```
 $ cp wp-config-sample.php wp-config.php
