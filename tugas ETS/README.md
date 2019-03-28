@@ -83,15 +83,20 @@ $ sudo cp /vagrant/schema.php /var/www/html/wp-admin/includes/
 
 Pindah ke direktori html
 ```
-cd /var/www/html
+$ cd /var/www/html
 ```
 Menyalin isi ```wp-config-sample.php``` ke dalam ```wp-config.php```
 ```
-$ cp wp-config-sample.php wp-config.php
+$ sudo cp wp-config-sample.php wp-config.php
 ```
 Mengedit isi file ```wp-config.php```
 ```
+$ sudo nano wp-config.php
+```
+Menambahkan keterangan berikut:
+```
 ...
+/** The name of the database for WordPress */
 define('DB_NAME', 'wordpress');
 
 /** MySQL database username */
