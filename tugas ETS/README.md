@@ -31,7 +31,7 @@ mysql> EXIT;
 ```
 
 ### 2.	Instalasi Apache dkk
-Menginstall apache dan beberapa ekstensi php pada ```proxySQL```
+Menginstall apache dan php pada ```proxySQL```
 ```
 $ sudo apt-get update
 $ sudo apt-get install apache2
@@ -69,7 +69,7 @@ Menyimpan perubahan
 $ sudo service apache2 restart
 ```
 
-
+-------
 Menyalin ```schema.php``` ke luar agar mudah untuk diedit
 ```
 $ cp /var/www/html/wp-admin/includes/schema.php /vagrant
@@ -110,7 +110,7 @@ define('DB_HOST', '192.168.33.14:6033');
 ...
 ```
 
-
+-------
 Membuka ```192.168.33.14``` pada browser maka akan terlihat hasil seperti berikut:
 
 ![wp1](screenshot/wp1.png)
