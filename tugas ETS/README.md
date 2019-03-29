@@ -142,4 +142,9 @@ $ sudo service mysql stop
 Meskipun salah satu service node dimatikan, data masih bisa berjalan dengan baik
 
 ## D. JMeter
+jMeter atau Apache JMeter adalah aplikasi open source berbasis Java yang dapat dipergunakan untuk performance test. Bagi seorang QA Engineer jMeter bisa digunakan untuk melakukan load/stress testing Web Application, FTP Application dan Database server test.
+
+### 1. Instalasi JMeter
+Paket-paket jMeter bisa langsung didownload di situs (jmeter.apache.org)[jmeter.apache.org]. Pilih Binaries, download sesuai yang dibutuhkan.
+
 ![j](screenshot/j.png)
