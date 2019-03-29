@@ -147,4 +147,13 @@ jMeter atau Apache JMeter adalah aplikasi open source berbasis Java yang dapat d
 ### 1. Instalasi JMeter
 Paket-paket jMeter bisa langsung didownload di situs [jmeter.apache.org](https://jmeter.apache.org/download_jmeter.cgi). Pilih Binaries, download sesuai yang dibutuhkan.
 
+Ekstrak file download tadi.
+
+### 2. Menjalankan JMeter
+Pada folder ekstraksi jMeter, masuk ke folder bin.
+
 ![j](screenshot/j.png)
+
+Klik dua kali pada ```ApacheJMeter.jar```
+
+### 3. Membuat Performance Test Plan
