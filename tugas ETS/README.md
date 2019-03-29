@@ -145,9 +145,7 @@ Meskipun salah satu service node dimatikan, data masih bisa berjalan dengan baik
 jMeter atau Apache JMeter adalah aplikasi open source berbasis Java yang dapat dipergunakan untuk performance test. Bagi seorang QA Engineer jMeter bisa digunakan untuk melakukan load/stress testing Web Application, FTP Application dan Database server test.
 
 ### 1. Instalasi JMeter
-Paket-paket jMeter bisa langsung didownload di situs [jmeter.apache.org](https://jmeter.apache.org/download_jmeter.cgi). Pilih Binaries, download sesuai yang dibutuhkan.
-
-Ekstrak file download tadi.
+Paket-paket jMeter bisa langsung didownload di situs [jmeter.apache.org](https://jmeter.apache.org/download_jmeter.cgi). Pilih Binaries, download sesuai yang dibutuhkan. Jika proses download sudah selesai, lalu ekstrak.
 
 ### 2. Menjalankan JMeter
 Pada folder ekstraksi jMeter, masuk ke folder bin.
@@ -156,4 +154,63 @@ Pada folder ekstraksi jMeter, masuk ke folder bin.
 
 Klik dua kali pada ```ApacheJMeter.jar```
 
+![j00](screenshot/j00.png)
+
 ### 3. Membuat Performance Test Plan
+Menyiapkan Test Plan.
+
+Menambahkan trafik/user visitor ke dalam komponen yang mau dites.
+
+Klik kanan Test Plan
+Add > Threads(Users) > Thread Group
+
+![j01](screenshot/j01.png)
+
+Dalam kontrol panel Thread Group, entri pada Thread Properties:
+– Number of threads (users) : isi berapa user/visitor yang akan mengakses web.
+– Ramp-Up period ( in seconds ) : isi berapa waktu delay antara user satu dengan yang lainnya dalam mengakses web.
+– Loop Count : waktu eksekusi, bertahap atau seterusnya.
+
+![j02](screenshot/j02.png)
+
+Menambahkan web server/IP Address yang akan dites.
+
+Klik kanan Threads Group
+Add > Config Element > HTTP Request Defaults
+
+![j03](screenshot/j03.png)
+
+Pada ```Web Server``` mengisikan Server Name atau IP dan Portnya, atau gampangnya isi website/url yang akan ditest. URL diisi dengan format http://www.
+
+![j04](screenshot/j04.png)
+
+Jika tidak hanya halaman utama yang di test, kita bisa menambahkan path/foldernya, caranya :
+Klik kanan Threads Group
+Add > Sampler > HTTP Request
+
+![j05](screenshot/j05.png)
+
+Isi web server, port dan path
+
+![j06](screenshot/j06.png)
+
+Menampilkan proses dan hasil test secara grafis atau bentuk tabel.
+
+Klik kanan Test Plan
+Add > Listener > Graph Result
+
+![j07](screenshot/j07.png)
+
+Add > Listener > View Results in Table
+
+![j08](screenshot/j08.png)
+
+Menjalankan Test secara otomatis.
+
+Simpan terlebih dahulu Test Plan yang telah dibuat di File > Save ( Ctrl + S ).
+
+Klik Run atau Ctrl + R, jMeter akan mulai mensimulasi sejumlah user dalam mengakses web server yang telah ditentukan.
+
+## Referensi
+http://blog.hendri.web.id/performance-test-sederhana-dengan-jmeter/
+https://www.guru99.com/jmeter-performance-testing.html
