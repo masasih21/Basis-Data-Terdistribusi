@@ -115,15 +115,15 @@ Membuka ```192.168.33.14``` pada browser maka akan terlihat hasil seperti beriku
 
 ![wp1](screenshot/wp1.png)
 
-![wp1](screenshot/wp2.png)
+![wp2](screenshot/wp2.png)
 
-![wp1](screenshot/wp3.png)
+![wp3](screenshot/wp3.png)
 
-![wp1](screenshot/wp4.png)
+![wp4](screenshot/wp4.png)
 
-![wp1](screenshot/wp5.png)
+![wp5](screenshot/wp5.png)
 
-![wp1](screenshot/wp6.png)
+![wp6](screenshot/wp6.png)
 
 Jika berhasil maka database pada service node otomatis akan terupdate
 ```
