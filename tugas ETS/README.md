@@ -227,5 +227,6 @@ Simpan terlebih dahulu Test Plan yang telah dibuat di File > Save ( Ctrl + S ).
 Klik Run atau Ctrl + R, jMeter akan mulai mensimulasi sejumlah user dalam mengakses web server yang telah ditentukan.
 
 ## Referensi
+https://www.digitalocean.com/community/tutorials/how-to-install-wordpress-with-lamp-on-ubuntu-16-04
 http://blog.hendri.web.id/performance-test-sederhana-dengan-jmeter/
 https://www.guru99.com/jmeter-performance-testing.html
