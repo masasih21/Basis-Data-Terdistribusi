@@ -113,15 +113,25 @@ define('DB_HOST', '192.168.33.14:6033');
 -------
 Membuka ```192.168.33.14``` pada browser maka akan terlihat hasil seperti berikut:
 
+Melakukan setting bahasa yang akan digunakan
+
 ![wp1](screenshot/wp1.png)
+
+Memberi nama situs dan membuat user baru
 
 ![wp2](screenshot/wp2.png)
 
 ![wp3](screenshot/wp3.png)
 
+Wordpress berhasil terinstall dengan baik
+
 ![wp4](screenshot/wp4.png)
 
+Proses Login
+
 ![wp5](screenshot/wp5.png)
+
+Halaman dashboard admin
 
 ![wp6](screenshot/wp6.png)
 
