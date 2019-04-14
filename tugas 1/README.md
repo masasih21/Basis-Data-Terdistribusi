@@ -501,7 +501,7 @@ Menggunakan tools lain
 
 Menghentikan salah satu proses dari MySQL server (data1)
 ```
-systemctl stop mysql
+sudo systemctl stop mysql
 ```
 ![onshun](screenshot/onshun.png)
 
@@ -515,7 +515,7 @@ Menggunakan tools lain
 
 Untuk menjalankan proses dari MySQL server (data1) yang sebelumnya dihentikan
 ```
-systemctl start mysql
+sudo systemctl start mysql
 ```
 
 ## Referensi
