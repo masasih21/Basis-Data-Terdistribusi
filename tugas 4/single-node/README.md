@@ -46,12 +46,14 @@ $ sudo service cassandra status
 ![cass1](screenshot/cass1.png)
 
 ## 3. Menghubungkan ke Cluster
+Setelah berhasil menginstall cassandra, periksa status cluster dengan perintah berikut:
 ```
 $ sudo nodetool status
 ```
-
+*UN berarti ```Up``` dan ```Normal```
 ![node1](screenshot/node1.png)
 
+Menghubungkan dengan antarmuka command line ```cqlsh```
 ```
 $ cqlsh
 ```
