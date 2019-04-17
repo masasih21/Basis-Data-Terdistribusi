@@ -27,6 +27,8 @@ Menambahkan repositori cassandra ke ```/etc/apt/sources.list.d/cassandra.sources
 ```
 $ echo "deb http://www.apache.org/dist/cassandra/debian 39x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.sources.list
 ```
+*39x berarti menggunakan Cassandra versi 3.9
+
 Menjalankan ```cURL``` untuk menambahkan kunci dari repositori
 ```
 $ curl https://www.apache.org/dist/cassandra/KEYS | sudo apt-key add -
@@ -50,8 +52,9 @@ Setelah berhasil menginstall cassandra, periksa status cluster dengan perintah b
 ```
 $ sudo nodetool status
 ```
-*UN berarti ```Up``` dan ```Normal```
 ![node1](screenshot/node1.png)
+
+*UN berarti ```Up``` dan ```Normal```, semua berjalan dengan normal
 
 Menghubungkan dengan antarmuka command line ```cqlsh```
 ```
