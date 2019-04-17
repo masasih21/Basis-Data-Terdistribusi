@@ -1,1 +1,1 @@
-.
+# Instalasi Cassandra Single Node
