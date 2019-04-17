@@ -5,8 +5,8 @@ Sistem ini terdiri dari 2 buah Cassandra node. Berikut adalah pembagian IP beser
 
 | IP            | hostname  |
 |---------------|-----------|
-| 192.168.33.12	| node1     |
-| 192.168.33.13	| node2     |
+| 192.168.33.12	| node2     |
+| 192.168.33.13	| node3     |
 
 ## 1. Instalasi Oracle Java Virtual Machine dan Cassandra
 Untuk instalasi java virtual machine dan cassandra, ikuti langkah seperti pada [Instalasi Cassandra Single Node](https://github.com/masasih21/Basis-Data-Terdistribusi/tree/master/tugas%204/single-node).
