@@ -4,7 +4,13 @@
 Sistem ini terdiri dari sebuah Cassandra node. IP yang digunakan adalah ```192.168.33.11``` dengan hostname ```node1```.
 
 ## 1. Instalasi Oracle Java Virtual Machine
-Untuk membuat paket Oracle JRE tersedia, menambahkan Personal Package Archives (PPA) menggunakan perintah berikut:
+Menginstall ```properties-common``` untuk dapat menambahkan ```add-repository```
+```
+$ sudo apt-get update
+$ sudo apt-get install software-properties-common
+```
+
+Untuk membuat paket Oracle JRE tersedia, menambahkan repositori Personal Package Archives (PPA) menggunakan perintah berikut:
 ```
 $ sudo add-apt-repository ppa:webupd8team/java
 ```
@@ -27,7 +33,7 @@ Menambahkan repositori cassandra ke ```/etc/apt/sources.list.d/cassandra.sources
 ```
 $ echo "deb http://www.apache.org/dist/cassandra/debian 39x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.sources.list
 ```
-*39x berarti menggunakan Cassandra versi 3.9
+*) 39x berarti menggunakan Cassandra versi 3.9
 
 Menjalankan ```cURL``` untuk menambahkan kunci dari repositori
 ```
@@ -54,7 +60,7 @@ $ sudo nodetool status
 ```
 ![node1](screenshot/node1.png)
 
-*UN berarti ```Up``` dan ```Normal```, semua berjalan dengan normal
+*) UN berarti ```Up``` dan ```Normal```, semua berjalan dengan normal
 
 Menghubungkan dengan antarmuka command line ```cqlsh```
 ```
