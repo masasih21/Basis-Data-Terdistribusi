@@ -92,7 +92,6 @@ Pada bagian bawah, tambahkan baris berikut:
 auto_bootstrap: false
 ```
 
-
 Keterangan:
 
 a. cluster_name: nama cluster
@@ -108,7 +107,6 @@ e. endpoint_snitch: nama snitch, yang memberi tahu Cassandra tentang seperti apa
 f. auto_bootstrap: membuat node baru secara otomatis menggunakan data yang benar
 
 ## 4. Konfigurasi Firewall
-Apabila node belum bisa berkomunikasi
 
 Untuk memungkinkan komunikasi, perlu membuka port jaringan berikut untuk setiap node:
 
@@ -120,9 +118,13 @@ Untuk memodifikasi firewall, buka rules file untuk IPv4.
 ```
 $ sudo nano /etc/iptables/rules.v4
 ```
+
+Menambahkan baris berikut :
 ```
-$ -A INPUT -p tcp -s your_other_server_ip -m multiport --dports 7000,9042 -m state --state NEW,ESTABLISHED -j ACCEPT
+$ -A INPUT -p tcp -s 192.168.33.1# -m multiport --dports 7000,9042 -m state --state NEW,ESTABLISHED -j ACCEPT
 ```
+
+Merestart IPTables
 ```
 $ sudo service iptables-persistent restart
 ```
@@ -160,4 +162,5 @@ Pada node3
 ![cqlsh3-1](screenshot/cqlsh3-1.png)
 
 ## Referensi
+https://www.digitalocean.com/community/tutorials/how-to-install-cassandra-and-run-a-single-node-cluster-on-ubuntu-14-04
 https://www.digitalocean.com/community/tutorials/how-to-run-a-multi-node-cluster-database-with-cassandra-on-ubuntu-14-04
