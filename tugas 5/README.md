@@ -12,3 +12,7 @@ Pengumpulan
 - dataset pilihan dan penjelasan
 - proses import dataset ke dalam Cassandra
 - proses CRUD data di dalam database Cassandra
+
+## Referensi
+https://www.digitalocean.com/community/tutorials/how-to-install-cassandra-and-run-a-single-node-cluster-on-ubuntu-14-04
+https://docs.datastax.com/en/cql/3.3/cql/cql_reference/cqlCommandsTOC.html
