@@ -93,12 +93,12 @@ auto_bootstrap: false
 ```
 
 Keterangan:
-a. cluster_name: nama cluster
-b. -seeds: daftar alamat IP setiap node yang merupakan anggota cluster
-c. listen_address: alamat IP yang akan digunakan node lain dalam cluster untuk terhubung ke yang node sekarang ini
-d. rpc_address: alamat IP untuk panggilan prosedur jarak jauh
-e. endpoint_snitch: nama snitch, yang memberi tahu Cassandra tentang seperti apa jaringannya
-f. auto_bootstrap: membuat node baru secara otomatis menggunakan data yang benar
+* cluster_name: nama cluster
+* -seeds: daftar alamat IP setiap node yang merupakan anggota cluster
+* listen_address: alamat IP yang akan digunakan node lain dalam cluster untuk terhubung ke yang node sekarang ini
+* rpc_address: alamat IP untuk panggilan prosedur jarak jauh
+* endpoint_snitch: nama snitch, yang memberi tahu Cassandra tentang seperti apa jaringannya
+* auto_bootstrap: membuat node baru secara otomatis menggunakan data yang benar
 
 ## 4. Konfigurasi Firewall
 
