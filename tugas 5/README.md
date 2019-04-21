@@ -25,7 +25,7 @@ CREATE TABLE info (id int PRIMARY KEY, name text, gender text, eye_color text, r
 ```
 COPY info (id, name, gender, eye_color, race, hair_color, height, publisher, skin_color, alignment, weight) FROM '/vagrant/heroes.csv' WITH DELIMITER=',' AND HEADER=TRUE;
 ```
-![copy](screenshot/copy.png)
+![copy1](screenshot/copy1.png)
 
 ```
 SELECT * FROM info;
