@@ -31,7 +31,8 @@ COPY info (id, name, gender, eye_color, race, hair_color, height, publisher, ski
 SELECT * FROM info;
 ```
 ![read1](screenshot/read1.png)
-![read2](screenshot/read2.png)
+
+![read3](screenshot/read3.png)
 
 ## CRUD Data
 ### a. Create Data
