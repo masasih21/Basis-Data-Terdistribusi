@@ -32,8 +32,8 @@ $ java -version
 
 ![java1](screenshot/java1.png)
 
-### Instalasi Open JDK
-*) dikarenakan per 16 April 2019 ada perubahan lisensi dari Apache, ppa tidak dapat digunakan lagi, maka instalasi Oracle Java Virtual Machine akan gagal
+### Menggunakan Open JDK
+*) dikarenakan per 16 April 2019 ada perubahan lisensi dari Apache, ppa tidak dapat digunakan lagi, maka instalasi Oracle Java Virtual Machine dengan ppa akan gagal
 
 ![ppa](screenshot/ppa.png)
 
