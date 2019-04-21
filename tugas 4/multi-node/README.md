@@ -15,34 +15,34 @@ Untuk instalasi java virtual machine dan cassandra, ikuti langkah seperti pada [
 
 Status java
 
-![java2](screenshot/java2.png)
+![java2](screenshot/2java2.png)
 
 Status cassandra
 
-![cass2](screenshot/cass2.png)
+![cass2](screenshot/2cass2.png)
 
 Status cluster
 
-![node2](screenshot/node2.png)
+![node2](screenshot/2node2.png)
 
 Tampilan antarmuka command line ```cqlsh```
 
-![cqlsh2](screenshot/cqlsh2.png)
+![cqlsh2](screenshot/2cqlsh2.png)
 
 ### Status ```node3``` yang telah terinstall
 
 Status java
 
-![java3](screenshot/java3.png)
+![java3](screenshot/3java3.png)
 
 Status cassandra
 
-![cass3](screenshot/cass3.png)
+![cass3](screenshot/3cass3.png)
 
 Status cluster
 
-![node3](screenshot/node3.png)
+![node3](screenshot/3node3.png)
 
 Tampilan antarmuka command line ```cqlsh```
 
-![cqlsh3](screenshot/cqlsh3.png)
+![cqlsh3](screenshot/3cqlsh3.png)
