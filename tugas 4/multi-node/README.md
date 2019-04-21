@@ -46,3 +46,55 @@ Status cluster
 Tampilan antarmuka command line ```cqlsh```
 
 ![cqlsh3](screenshot/3cqlsh3.png)
+
+
+## A
+```
+sudo service cassandra stop
+```
+```
+sudo rm -rf /var/lib/cassandra/data/system/*
+```
+```
+sudo nano /etc/cassandra/cassandra.yaml
+```
+```
+. . .
+cluster_name: 'CassandraDOCluster'
+. . .
+seed_provider:
+  - class_name: org.apache.cassandra.locator.SimpleSeedProvider
+    parameters:
+         - seeds: "your_server_ip,your_server_ip_2,...your_server_ip_n"
+. . .
+listen_address: your_server_ip
+. . .
+rpc_address: your_server_ip
+. . .
+endpoint_snitch: GossipingPropertyFileSnitch
+. . .
+```
+```
+auto_bootstrap: false
+```
+```
+sudo service cassandra start
+```
+```
+sudo nodetool status
+```
+```
+sudo nano /etc/iptables/rules.v4
+```
+```
+-A INPUT -p tcp -s your_other_server_ip -m multiport --dports 7000,9042 -m state --state NEW,ESTABLISHED -j ACCEPT
+```
+```
+sudo service iptables-persistent restart
+```
+```
+sudo nodetool status
+```
+```
+cqlsh your_server_ip 9042
+```
