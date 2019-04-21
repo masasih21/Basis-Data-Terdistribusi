@@ -53,12 +53,13 @@ Masuk pada cassandra node2 dan node3 (192.168.33.12, 192.168.33.13).
 
 Sebelum menghapus data, mematikan masing-masing node cassandra terlebih dahulu
 ```
-sudo service cassandra stop
+$ sudo service cassandra stop
 ```
 
 Menghapus data default
 ```
-sudo rm -rf /var/lib/cassandra/data/system/*
+
+$ sudo rm -rf /var/lib/cassandra/data/system/*
 ```
 
 ## 3. Konfigurasi Cluster
@@ -66,7 +67,7 @@ File konfigurasi Cassandra, ```cassandra.yaml``` terletak di direktori ```/etc/c
 
 Membuka file ```cassandra.yaml``` untuk diedit
 ```
-sudo nano /etc/cassandra/cassandra.yaml
+$ sudo nano /etc/cassandra/cassandra.yaml
 ```
 
 Lakukan perubahan pada bagian-bagian berikut:
@@ -106,7 +107,27 @@ e. endpoint_snitch: nama snitch, yang memberi tahu Cassandra tentang seperti apa
 
 f. auto_bootstrap: membuat node baru secara otomatis menggunakan data yang benar
 
-## 4. Cek Status Cluster
+## 4. Konfigurasi Firewall
+Apabila node belum bisa berkomunikasi
+
+Untuk memungkinkan komunikasi, perlu membuka port jaringan berikut untuk setiap node:
+
+```7000``` port TCP untuk perintah dan data.
+
+```9042``` port TCP untuk server transportasi asli. ```cqlsh``` akan terhubung ke cluster melalui port ini.
+
+Untuk memodifikasi firewall, buka rules file untuk IPv4.
+```
+$ sudo nano /etc/iptables/rules.v4
+```
+```
+$ -A INPUT -p tcp -s your_other_server_ip -m multiport --dports 7000,9042 -m state --state NEW,ESTABLISHED -j ACCEPT
+```
+```
+$ sudo service iptables-persistent restart
+```
+
+## 5. Cek Status Cluster
 Menjalankan masing-masing node cassandra
 ```
 sudo service cassandra start
@@ -125,21 +146,9 @@ Pada node3
 
 ![node3-2](screenshot/node3-2.png)
 
-```
-sudo nano /etc/iptables/rules.v4
-```
-```
--A INPUT -p tcp -s your_other_server_ip -m multiport --dports 7000,9042 -m state --state NEW,ESTABLISHED -j ACCEPT
-```
-```
-sudo service iptables-persistent restart
-```
-```
-sudo nodetool status
-```
 Mengecek apakah terhubung atau tidak ke cluster menggunakan ```cqlsh```
 ```
-cqlsh your_server_ip 9042
+$ cqlsh 192.168.33.1# 9042
 ```
 
 Pada node2
