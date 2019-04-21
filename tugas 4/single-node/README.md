@@ -28,6 +28,18 @@ $ java -version
 ```
 ![java1](screenshot/java1.png)
 
+## 2. Instalasi Open JDK
+
+```
+sudo apt install openjdk-8-jdk
+```
+```
+sudo apt install openjdk-8-jre
+```
+```
+update-java-alternatives -l
+```
+
 ## 2. Instalasi Cassandra
 Menambahkan repositori cassandra ke ```/etc/apt/sources.list.d/cassandra.sources.list``` dengan perintah berikut:
 ```
