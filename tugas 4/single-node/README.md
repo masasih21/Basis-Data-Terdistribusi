@@ -29,18 +29,32 @@ $ java -version
 ![java1](screenshot/java1.png)
 
 ## 2. Instalasi Open JDK
+*) dikarenakan per 16 April 2019 ada perubahan lisensi dari Apache, ppa tidak dapat digunakan lagi, maka instalasi Oracle Java Virtual Machine akan gagal
+
+![ppa](screenshot/ppa.png)
+
+sehingga dapat diganti dengan instalasi menggunakan Open JDK
+
+Menginstall Open JDK
 
 ```
-sudo apt install openjdk-8-jdk
-```
-```
-sudo apt install openjdk-8-jre
-```
-```
-update-java-alternatives -l
+$ sudo apt install openjdk-8-jdk
+$ sudo apt install openjdk-8-jre
 ```
 
-## 2. Instalasi Cassandra
+Mengecek list alternatif java yang tersedia
+
+```
+$ update-java-alternatives -l
+```
+
+Mengecek java yang telah terinstall
+```
+$ java -version
+```
+![1java1](screenshot/1java1.png)
+
+## 3. Instalasi Cassandra
 Menambahkan repositori cassandra ke ```/etc/apt/sources.list.d/cassandra.sources.list``` dengan perintah berikut:
 ```
 $ echo "deb http://www.apache.org/dist/cassandra/debian 39x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.sources.list
@@ -65,7 +79,7 @@ $ sudo service cassandra status
 ```
 ![cass1](screenshot/cass1.png)
 
-## 3. Menghubungkan ke Cluster
+## 4. Menghubungkan ke Cluster
 Setelah berhasil menginstall cassandra, periksa status cluster dengan perintah berikut:
 ```
 $ sudo nodetool status
