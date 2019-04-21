@@ -64,7 +64,7 @@ sudo rm -rf /var/lib/cassandra/data/system/*
 ## 3. Konfigurasi Cluster
 File konfigurasi Cassandra, ```cassandra.yaml``` terletak di direktori ```/etc/cassandra```. Pada langkah ini, akan dilakukan modifikasi file tersebut untuk mengatur cluster.
 
-Membuka ```cassandra.yaml`` file untuk diedit
+Membuka file ```cassandra.yaml``` untuk diedit
 ```
 sudo nano /etc/cassandra/cassandra.yaml
 ```
@@ -90,6 +90,7 @@ Pada bagian bawah, tambahkan baris berikut:
 ```
 auto_bootstrap: false
 ```
+
 
 Keterangan:
 
@@ -118,11 +119,11 @@ sudo nodetool status
 
 Pada node2
 
-![node2-1](screenshot/node2-1.png)
+![node2-2](screenshot/node2-2.png)
 
 Pada node3
 
-![node3-1](screenshot/node3-1.png)
+![node3-2](screenshot/node3-2.png)
 
 ```
 sudo nano /etc/iptables/rules.v4
