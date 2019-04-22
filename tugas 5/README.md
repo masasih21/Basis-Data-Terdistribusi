@@ -12,12 +12,12 @@ Fitur utama Cassandra:
 * Fault-tolerant: Data secara otomatis direplikasi ke beberapa node untuk mentoleransi kesalahan.
 * Bahasa query: Memperkanalkan CQL (Cassandra Query Language), SQL-like alternatif terhadap antarmuka RPC tradisional.
 
-Relational Database	                                              | NoSql Database
----------------------------------------------------------------------------------------------------------
-Supports powerful query language.                                 | Supports very simple query language.
-It has a fixed schema.                                            | No fixed schema.
-Follows ACID (Atomicity, Consistency, Isolation, and Durability). | It is only “eventually consistent”.
-Supports transactions.                                            | Does not support transactions.
+| Relational Database	                                              | NoSql Database                        |
+---------------------------------------------------------------------------------------------------------   |
+| Supports powerful query language.                                 | Supports very simple query language.  |
+| It has a fixed schema.                                            | No fixed schema.                      |
+| Follows ACID (Atomicity, Consistency, Isolation, and Durability). | It is only “eventually consistent”.   |
+| Supports transactions.                                            | Does not support transactions.        |
 
 ## 1. Arsitektur Server
 
@@ -144,6 +144,7 @@ Proses CRUD pada cassandra hampir sama dengan query pada mysql biasanya. Bedanya
 ## Referensi
 http://gudanglinux.com/glossary/nosql-cassandra/
 https://medium.com/@danairwanda/pengenalan-cassandra-database-nosql-3d33a768a20
+https://www.tutorialspoint.com/cassandra/cassandra_introduction.htm
 https://www.digitalocean.com/community/tutorials/how-to-install-cassandra-and-run-a-single-node-cluster-on-ubuntu-14-04
 https://docs.datastax.com/en/cql/3.3/cql/cql_reference/cqlCommandsTOC.html
 https://www.datastax.com/dev/blog/simple-data-importing-and-exporting-with-cassandra
