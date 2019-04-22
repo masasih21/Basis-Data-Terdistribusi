@@ -6,7 +6,7 @@ apa itu database Cassandra dan apa perbedaannya dengan database relational dan d
 ## 1. Arsitektur Server
 
 ## 2. Instalasi Cassandra Single Node
-Untuk instalasi cassandra single node, ikuti langkah seperti pada [Instalasi Cassandra Single Node](https://github.com/masasih21/Basis-Data-Terdistribusi/tree/master/tugas%204/single-node).
+Untuk instalasi cassandra single node, ikuti langkah seperti pada tugas sebelumnya yakni [Instalasi Cassandra Single Node](https://github.com/masasih21/Basis-Data-Terdistribusi/tree/master/tugas%204/single-node).
 
 ## 3. Dataset
 Dataset yang saya gunakan di sini adalah [Super Heroes Dataset](https://www.kaggle.com/claudiodavi/superhero-set#heroes_information.csv) yang berisi karakteristik pahlawan super.
