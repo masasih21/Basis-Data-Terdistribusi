@@ -3,6 +3,15 @@
 ## Pendahuluan
 apa itu database Cassandra dan apa perbedaannya dengan database relational dan database NoSQL lainnya.
 
+Apache Cassandra adalah database terdistribusi yang sangat scalable (dapat diukur) dan berkinerja tinggi yang dirancang untuk mengelola data terstruktur dengan skala yang sangat besar di banyak server komoditas tanpa kegagalan. Apache Cassandra  merupakan salah satu implementasi dari NoSQL (Not only SQL) disamping CouchDB, MongoDB dan OrientDB. Cassandra secara otomatis mereplikasi data ke simpul (node) yang mendukung replikasi di beberapa pusat data yang terkait. Dengan arsitektur desentralisasi seperti ini risiko kegagalan penyimpanan data dapat meminimalkan secara default.
+
+Fitur utama Cassandra:
+* Desentralisasi: setiap node di cluster memiliki peran yang sama. Data didistribusikan lintas cluster (sehingga setiap node berisi data yang berbeda), namun tidak ada master karena setiap node dapat melayani permintaan apapun yang sama.
+* Mendukung replikasi di multi data center: Strategi replikasi dapat dikonfigurasi. Cassandra dirancang sebagai sistem terdistribusi, untuk penyebaran sejumlah node di beberapa pusat data.
+* Skalabilitas: Penambahan kapasitas penyimpanan dapat ditambah sewaktu waktu dan tanpa terikat hardware dan lokasi yang sama.
+* Fault-tolerant: Data secara otomatis direplikasi ke beberapa node untuk mentoleransi kesalahan.
+* Bahasa query: Memperkanalkan CQL (Cassandra Query Language), SQL-like alternatif terhadap antarmuka RPC tradisional.
+
 ## 1. Arsitektur Server
 
 ## 2. Instalasi Cassandra Single Node
@@ -126,6 +135,8 @@ cqlsh:heroes> DELETE FROM info WHERE id=1000;
 Proses CRUD pada cassandra hampir sama dengan query pada mysql biasanya. Bedanya hanya pada pembuatan database yang pada cassandra disebut dengan ```keyspace``` yang mana pada pembuatannya diikuti dengan inisialisasi *class strategy*, *datacenter_name*, dan jumlah *replication_factor*. 
 
 ## Referensi
+http://gudanglinux.com/glossary/nosql-cassandra/
+https://medium.com/@danairwanda/pengenalan-cassandra-database-nosql-3d33a768a20
 https://www.digitalocean.com/community/tutorials/how-to-install-cassandra-and-run-a-single-node-cluster-on-ubuntu-14-04
 https://docs.datastax.com/en/cql/3.3/cql/cql_reference/cqlCommandsTOC.html
 https://www.datastax.com/dev/blog/simple-data-importing-and-exporting-with-cassandra
