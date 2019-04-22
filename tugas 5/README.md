@@ -8,7 +8,8 @@ Fitur utama Cassandra:
 * Mendukung replikasi di multi data center: Strategi replikasi dapat dikonfigurasi. Cassandra dirancang sebagai sistem terdistribusi, untuk penyebaran sejumlah node di beberapa pusat data.
 * Skalabilitas: Penambahan kapasitas penyimpanan dapat ditambah sewaktu waktu dan tanpa terikat hardware dan lokasi yang sama.
 * Fault-tolerant: Data secara otomatis direplikasi ke beberapa node untuk mentoleransi kesalahan.
-* Bahasa query: Memperkanalkan CQL (Cassandra Query Language), SQL-like alternatif terhadap antarmuka RPC tradisional.
+* Dukungan MapReduce: Cassandra memiliki kemampuan untuk di integrasi dengan Hadoop. Juga mendukung Apache Pig dan Apache Hive.
+* Bahasa query: Memperkenalkan CQL (Cassandra Query Language), SQL-like alternatif terhadap antarmuka RPC tradisional. Bahasa driver tersedia untuk Java (JDBC), Python (DBAPI2) dan Node.js (Helenus).
 
 Perbedaan database relasional dan database NoSQL
 
@@ -19,9 +20,13 @@ Perbedaan database relasional dan database NoSQL
 | Follows ACID (Atomicity, Consistency, Isolation, and Durability). | It is only “eventually consistent”. |
 | Mendukung transaksi                                               | Tidak mendukung transaksi           |
 
-
+Perbedaan dengan NoSQL yang lain
+* Apache HBase - *open source*, non-relasional, database terdistribusi yang dimodelkan setelah Google BigTable dan ditulis dalam Java. Ini dikembangkan sebagai bagian dari proyek Apache Hadoop dan berjalan di atas HDFS, menyediakan kemampuan seperti BigTable untuk Hadoop.
+* MongoDB - MongoDB adalah sistem database berorientasi dokumen lintas platform yang menghindari penggunaan struktur basis data relasional berbasis tabel tradisional yang mendukung dokumen mirip JSON dengan skema dinamis yang menjadikan integrasi data dalam jenis aplikasi tertentu lebih mudah dan lebih cepat.
 
 ## 1. Arsitektur Server
+
+
 
 ## 2. Instalasi Cassandra Single Node
 Untuk instalasi cassandra single node, ikuti langkah seperti pada tugas sebelumnya yakni [Instalasi Cassandra Single Node](https://github.com/masasih21/Basis-Data-Terdistribusi/tree/master/tugas%204/single-node).
