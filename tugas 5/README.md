@@ -34,7 +34,7 @@ Membuat ```keyspace``` atau database pada cassandra dengan nama ```heroes```
 ```
 CREATE KEYSPACE heroes WITH REPLICATION = {'class':'NetworkTopologyStrategy','datacenter1':1};
 ```
-*database yang dibuat bernama heroes dengan replication factors 1*
+> Database yang dibuat bernama heroes dengan replication factors 1
 
 Menggunakan keyspace ```heroes```
 ```
@@ -52,7 +52,7 @@ COPY info (id, name, gender, eye_color, race, hair_color, height, publisher, ski
 ```
 ![copy1](screenshot/copy1.png)
 
-*tertulis Processed : 734 rows; yang berarti berhasil mengimport sebanyak 734 data.*
+> Tertulis Processed : 734 rows; yang berarti berhasil mengimport sebanyak 734 data.
 
 Mengecek hasil import data
 ```
