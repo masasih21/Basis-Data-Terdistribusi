@@ -1,8 +1,6 @@
 # Implementasi Cassandra Single Node
 
 ## Pendahuluan
-apa itu database Cassandra dan apa perbedaannya dengan database relational dan database NoSQL lainnya.
-
 Apache Cassandra adalah database terdistribusi yang sangat scalable (dapat diukur) dan berkinerja tinggi yang dirancang untuk mengelola data terstruktur dengan skala yang sangat besar di banyak server komoditas tanpa kegagalan. Apache Cassandra  merupakan salah satu implementasi dari NoSQL (Not only SQL) disamping CouchDB, MongoDB dan OrientDB. Cassandra secara otomatis mereplikasi data ke simpul (node) yang mendukung replikasi di beberapa pusat data yang terkait. Dengan arsitektur desentralisasi seperti ini risiko kegagalan penyimpanan data dapat meminimalkan secara default.
 
 Fitur utama Cassandra:
@@ -12,12 +10,16 @@ Fitur utama Cassandra:
 * Fault-tolerant: Data secara otomatis direplikasi ke beberapa node untuk mentoleransi kesalahan.
 * Bahasa query: Memperkanalkan CQL (Cassandra Query Language), SQL-like alternatif terhadap antarmuka RPC tradisional.
 
+Perbedaan database relasional dan database NoSQL
+
 | Relational Database	                                              | NoSql Database                      |
 |-------------------------------------------------------------------|-------------------------------------|
 | Mendukung bahasa query kuat                                       | Mendukung bahasa query sederhana    |
 | Skema tetap                                                       | Skema tidak tetap                   |
 | Follows ACID (Atomicity, Consistency, Isolation, and Durability). | It is only “eventually consistent”. |
 | Mendukung transaksi                                               | Tidak mendukung transaksi           |
+
+
 
 ## 1. Arsitektur Server
 
