@@ -32,12 +32,9 @@ cqlsh
 
 Membuat ```keyspace``` atau database pada cassandra dengan nama ```heroes```
 ```
-CREATE KEYSPACE *keyspace_name* WITH REPLICATION = {'class':'*strategy*','*datacenter_name*':*N*};
-```
-
-```
 CREATE KEYSPACE heroes WITH REPLICATION = {'class':'NetworkTopologyStrategy','datacenter1':1};
 ```
+*) database yang dibuat bernama heroes dengan replication factors 1
 
 Menggunakan keyspace ```heroes```
 ```
@@ -67,29 +64,41 @@ SELECT * FROM info;
 
 ## 5. CRUD Data
 ### a. Create Data
+Menambahkan data baru pada tabel ```info```
 ```
 INSERT INTO info (id, name, gender, eye_color, race, hair_color, skin_color, alignment) VALUES (1000, 'ibuk', 'female', 'brown', 'human', 'black', 'langsat', 'good');
 ```
 
 ![insert](screenshot/insert.png)
 
+*) INSERT INTO nama_tabel (list_kolom) VALUES (isi_kolom);
+
 ### b. Read Data
+Membaca data pada tabel ```info```
 ```
 SELECT * FROM info;
 ```
 ![read1](screenshot/read1.png)
 
+*) SELECT list_kolom FROM nama_tabel;
+
 ### c. Update Data
+Mengubah data pada tabel ```info```
 ```
 UPDATE info SET height=150,weight=55 WHERE id=1000;
 ```
 ![update](screenshot/update.png)
 
+*) UPDATE nama_tabel SET list_kolom=isi_kolom WHERE kondisi;
+
 ### d. Delete Data
+Menghapus data pada tabel ```info```
 ```
 DELETE FROM info WHERE id=1000;
 ```
 ![delete](screenshot/delete.png)
+
+*) DELETE FROM nama_tabel WHERE kondisi;
 
 ## Referensi
 https://www.digitalocean.com/community/tutorials/how-to-install-cassandra-and-run-a-single-node-cluster-on-ubuntu-14-04
