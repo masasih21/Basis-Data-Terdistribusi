@@ -12,12 +12,12 @@ Fitur utama Cassandra:
 * Fault-tolerant: Data secara otomatis direplikasi ke beberapa node untuk mentoleransi kesalahan.
 * Bahasa query: Memperkanalkan CQL (Cassandra Query Language), SQL-like alternatif terhadap antarmuka RPC tradisional.
 
-| Relational Database	                                              | NoSql Database                        |
----------------------------------------------------------------------------------------------------------   |
-| Supports powerful query language.                                 | Supports very simple query language.  |
-| It has a fixed schema.                                            | No fixed schema.                      |
-| Follows ACID (Atomicity, Consistency, Isolation, and Durability). | It is only “eventually consistent”.   |
-| Supports transactions.                                            | Does not support transactions.        |
+| Relational Database	                                              | NoSql Database                      |
+|-------------------------------------------------------------------|-------------------------------------|
+| Mendukung bahasa query kuat                                       | Mendukung bahasa query sederhana    |
+| Skema tetap                                                       | Skema tidak tetap                   |
+| Follows ACID (Atomicity, Consistency, Isolation, and Durability). | It is only “eventually consistent”. |
+| Mendukung transaksi                                               | Tidak mendukung transaksi           |
 
 ## 1. Arsitektur Server
 
