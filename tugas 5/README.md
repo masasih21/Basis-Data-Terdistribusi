@@ -122,6 +122,9 @@ cqlsh:heroes> DELETE FROM info WHERE id=1000;
 
 > Menghapus data pada tabel *info* yang *idnya 1000*
 
+## Kesimpulan
+Proses CRUD pada cassandra hampir sama dengan query pada mysql biasanya. Bedanya hanya pada pembuatan database yang pada cassandra disebut dengan ```keyspace``` yang mana pada pembuatannya diikuti dengan inisialisasi *class strategy*, *datacenter_name*, dan jumlah *replication_factor*. 
+
 ## Referensi
 https://www.digitalocean.com/community/tutorials/how-to-install-cassandra-and-run-a-single-node-cluster-on-ubuntu-14-04
 https://docs.datastax.com/en/cql/3.3/cql/cql_reference/cqlCommandsTOC.html
