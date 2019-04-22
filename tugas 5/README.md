@@ -8,8 +8,19 @@ apa itu database Cassandra dan apa perbedaannya dengan database relational dan d
 ## 2. Instalasi Cassandra Single Node
 Untuk instalasi cassandra single node, ikuti langkah seperti pada tugas sebelumnya yakni [Instalasi Cassandra Single Node](https://github.com/masasih21/Basis-Data-Terdistribusi/tree/master/tugas%204/single-node).
 
+Status Java
+![1java1](screenshot/1java1.png)
+
+Status Cassandra
+![1cass1](screenshot/1cass1.png)
+
+Status Cluster
+![1node1](screenshot/1node1.png)
+
 ## 3. Dataset
 Dataset yang saya gunakan di sini adalah [Super Heroes Dataset](https://www.kaggle.com/claudiodavi/superhero-set#heroes_information.csv) yang berisi karakteristik pahlawan super.
+
+![dataset](screenshot/dataset.png)
 
 Dataset ini memiliki 11 fitur yakni:
 * ID
