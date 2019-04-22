@@ -71,9 +71,9 @@ INSERT INTO info (id, name, gender, eye_color, race, hair_color, skin_color, ali
 
 ![insert](screenshot/insert.png)
 
-> > INSERT INTO *nama_tabel* (*list_kolom*) VALUES (*isi_kolom*);
-> > yang berarti menambahkan data dengan id=100, name=ibuk, gender=female, eye_color=brown, race=human, hair_color=black, skin_color=langsat, dan aligment=good pada tabel *info*
-> > list kolom yang tidak disebutkan dalam insert maka akan terisi default *null*
+> INSERT INTO *nama_tabel* (*list_kolom*) VALUES (*isi_kolom*);
+
+> Menambahkan data dengan id=100, name=ibuk, gender=female, eye_color=brown, race=human, hair_color=black, skin_color=langsat, dan aligment=good pada tabel *info*, list kolom yang tidak disebutkan dalam insert maka akan terisi default *null*
 
 ### b. Read Data
 Membaca data pada tabel ```info```
