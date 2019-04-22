@@ -37,7 +37,7 @@ Cassandra mempunyai beberapa komponen utama yaitu :
 * Mem-Table : adalah memory-resident data structure. Setelah menulis dalam commit log , cassandra melakukan penulisan di sini
 * CQL : Cassandra Query Language, adalah bahasa perintah query di cassandra 
 
-Sistem ini terdiri dari sebuah Cassandra node. IP yang digunakan adalah 192.168.33.11 dengan hostname node1.
+Sistem ini terdiri dari sebuah Cassandra node. IP yang digunakan adalah ```192.168.33.11``` dengan hostname ```node1```.
 
 ## 2. Instalasi Cassandra Single Node
 Untuk instalasi cassandra single node, ikuti langkah seperti pada tugas sebelumnya yakni [Instalasi Cassandra Single Node](https://github.com/masasih21/Basis-Data-Terdistribusi/tree/master/tugas%204/single-node).
