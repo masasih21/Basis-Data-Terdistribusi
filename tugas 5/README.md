@@ -73,7 +73,7 @@ INSERT INTO info (id, name, gender, eye_color, race, hair_color, skin_color, ali
 
 > INSERT INTO *nama_tabel* (*list_kolom*) VALUES (*isi_kolom*);
 
-> Menambahkan data dengan id=100, name=ibuk, gender=female, eye_color=brown, race=human, hair_color=black, skin_color=langsat, dan aligment=good pada tabel *info*, list kolom yang tidak disebutkan dalam insert maka akan terisi default *null*
+> Menambahkan data dengan *id=100*, *name=ibuk*, *gender=female*, *eye_color=brown*, *race=human*, *hair_color=black*, *skin_color=langsat*, dan *aligment=good* pada tabel *info*, list kolom yang tidak disebutkan dalam insert maka akan terisi default *null*
 
 ### b. Read Data
 Membaca data pada tabel ```info```
@@ -82,7 +82,9 @@ SELECT * FROM info;
 ```
 ![read1](screenshot/read1.png)
 
-*SELECT list_kolom FROM nama_tabel;*
+> SELECT *list_kolom* FROM *nama_tabel*;
+
+> Membaca *semua kolom* dari tabel *info*
 
 ### c. Update Data
 Mengubah data pada tabel ```info```
@@ -91,7 +93,9 @@ UPDATE info SET height=150,weight=55 WHERE id=1000;
 ```
 ![update](screenshot/update.png)
 
-*UPDATE nama_tabel SET list_kolom=isi_kolom WHERE kondisi;*
+> UPDATE nama_tabel SET list_kolom=isi_kolom WHERE kondisi;
+
+> Mengubah data *height=150* dan *weight=55* yang *idnya 1000* pada tabel *info*
 
 ### d. Delete Data
 Menghapus data pada tabel ```info```
@@ -100,7 +104,9 @@ DELETE FROM info WHERE id=1000;
 ```
 ![delete](screenshot/delete.png)
 
-*DELETE FROM nama_tabel WHERE kondisi;*
+> DELETE FROM nama_tabel WHERE kondisi;
+
+> Menghapus data pada tabel *info* yang *idnya 1000*
 
 ## Referensi
 https://www.digitalocean.com/community/tutorials/how-to-install-cassandra-and-run-a-single-node-cluster-on-ubuntu-14-04
