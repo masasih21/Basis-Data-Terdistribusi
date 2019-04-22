@@ -25,8 +25,17 @@ Perbedaan dengan NoSQL yang lain
 * MongoDB - MongoDB adalah sistem database berorientasi dokumen lintas platform yang menghindari penggunaan struktur basis data relasional berbasis tabel tradisional yang mendukung dokumen mirip JSON dengan skema dinamis yang menjadikan integrasi data dalam jenis aplikasi tertentu lebih mudah dan lebih cepat.
 
 ## 1. Arsitektur Server
+Cassandra memiliki *peer-to-peer* sistem terdistribusi di seluruh node, dan data didistribusikan di antara semua node dalam sebuah cluster. Replikasi data di Cassandra disebut dengan istilah *Gossip Protocol* dimana satu atau lebih node dalam sebuah Cluster sebagai replika untuk bagian tertentu dari data. 
 
+![rep](screenshot/rep.jpeg)
 
+Cassandra mempunyai beberapa komponen utama yaitu :
+* Node : server tempat penyimpanan data
+* Data Center : kumpulan dari beberapa node
+* Cluster : kumpulan dari beberapa data center
+* Commit Log : adalah log dari proses penulisan di Cassandra yang berfungsi juga sebagai Crash Recovery Mechanism
+* Mem-Table : adalah memory-resident data structure. Setelah menulis dalam commit log , cassandra melakukan penulisan di sini
+* CQL : Cassandra Query Language, adalah bahasa perintah query di cassandra 
 
 ## 2. Instalasi Cassandra Single Node
 Untuk instalasi cassandra single node, ikuti langkah seperti pada tugas sebelumnya yakni [Instalasi Cassandra Single Node](https://github.com/masasih21/Basis-Data-Terdistribusi/tree/master/tugas%204/single-node).
