@@ -9,12 +9,15 @@ apa itu database Cassandra dan apa perbedaannya dengan database relational dan d
 Untuk instalasi cassandra single node, ikuti langkah seperti pada tugas sebelumnya yakni [Instalasi Cassandra Single Node](https://github.com/masasih21/Basis-Data-Terdistribusi/tree/master/tugas%204/single-node).
 
 Status Java
+
 ![1java1](screenshot/1java1.png)
 
 Status Cassandra
+
 ![1cass1](screenshot/1cass1.png)
 
 Status Cluster
+
 ![1node1](screenshot/1node1.png)
 
 ## 3. Dataset
@@ -38,28 +41,28 @@ Dataset ini memiliki 11 fitur yakni:
 ## 4. Import Dataset
 Masuk pada command line cassandra
 ```
-cqlsh
+$ cqlsh
 ```
 
 Membuat ```keyspace``` atau database pada cassandra dengan nama ```heroes```
 ```
-CREATE KEYSPACE heroes WITH REPLICATION = {'class':'NetworkTopologyStrategy','datacenter1':1};
+cqlsh> CREATE KEYSPACE heroes WITH REPLICATION = {'class':'NetworkTopologyStrategy','datacenter1':1};
 ```
 > Database yang dibuat bernama heroes dengan replication factors 1
 
 Menggunakan keyspace ```heroes```
 ```
-use heroes;
+cqlsh> use heroes;
 ```
 
 Membuat tabel ```info``` dengan 10 fitur dan tipe data seperti berikut:
 ```
-CREATE TABLE info (id int PRIMARY KEY, name text, gender text, eye_color text, race text, hair_color text, height float, publisher text, skin_color text, alignment text, weight float);
+cqlsh:heroes> CREATE TABLE info (id int PRIMARY KEY, name text, gender text, eye_color text, race text, hair_color text, height float, publisher text, skin_color text, alignment text, weight float);
 ```
 
 Mengimport dataset ```heroes.csv```
 ```
-COPY info (id, name, gender, eye_color, race, hair_color, height, publisher, skin_color, alignment, weight) FROM '/vagrant/heroes.csv' WITH DELIMITER=',' AND HEADER=TRUE;
+cqlsh:heroes> COPY info (id, name, gender, eye_color, race, hair_color, height, publisher, skin_color, alignment, weight) FROM '/vagrant/heroes.csv' WITH DELIMITER=',' AND HEADER=TRUE;
 ```
 ![copy1](screenshot/copy1.png)
 
@@ -67,7 +70,7 @@ COPY info (id, name, gender, eye_color, race, hair_color, height, publisher, ski
 
 Mengecek hasil import data
 ```
-SELECT * FROM info;
+cqlsh:heroes> SELECT * FROM info;
 ```
 ![read1](screenshot/read1.png)
 
@@ -77,7 +80,7 @@ SELECT * FROM info;
 ### a. Create Data
 Menambahkan data baru pada tabel ```info```
 ```
-INSERT INTO info (id, name, gender, eye_color, race, hair_color, skin_color, alignment) VALUES (1000, 'ibuk', 'female', 'brown', 'human', 'black', 'langsat', 'good');
+cqlsh:heroes> INSERT INTO info (id, name, gender, eye_color, race, hair_color, skin_color, alignment) VALUES (1000, 'ibuk', 'female', 'brown', 'human', 'black', 'langsat', 'good');
 ```
 
 ![insert](screenshot/insert.png)
@@ -89,7 +92,7 @@ INSERT INTO info (id, name, gender, eye_color, race, hair_color, skin_color, ali
 ### b. Read Data
 Membaca data pada tabel ```info```
 ```
-SELECT * FROM info;
+cqlsh:heroes> SELECT * FROM info;
 ```
 ![read1](screenshot/read1.png)
 
@@ -100,7 +103,7 @@ SELECT * FROM info;
 ### c. Update Data
 Mengubah data pada tabel ```info```
 ```
-UPDATE info SET height=150,weight=55 WHERE id=1000;
+cqlsh:heroes> UPDATE info SET height=150,weight=55 WHERE id=1000;
 ```
 ![update](screenshot/update.png)
 
@@ -111,7 +114,7 @@ UPDATE info SET height=150,weight=55 WHERE id=1000;
 ### d. Delete Data
 Menghapus data pada tabel ```info```
 ```
-DELETE FROM info WHERE id=1000;
+cqlsh:heroes> DELETE FROM info WHERE id=1000;
 ```
 ![delete](screenshot/delete.png)
 
