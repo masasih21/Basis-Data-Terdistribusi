@@ -241,11 +241,11 @@ Simpan terlebih dahulu Test Plan yang telah dibuat di File > Save ( Ctrl + S ).
 
 Klik Run atau Ctrl + R, jMeter akan mulai mensimulasi sejumlah user dalam mengakses web server yang telah ditentukan.
 
-![j10](screenshot/j10.png)
-
 ![hasil](screenshot/hasil.png)
 
-![j12](screenshot/j12.png)
+![j10](screenshot/j10.png)
+
+![j11](screenshot/j11.png)
 
 ## Referensi
 https://www.digitalocean.com/community/tutorials/how-to-install-wordpress-with-lamp-on-ubuntu-16-04
