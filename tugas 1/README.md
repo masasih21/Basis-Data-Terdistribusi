@@ -389,7 +389,7 @@ Masuk pada MySQL prompt
 ```
 $ mysql -u root –p
 ```
-Membuat user monitor pada kedua API node
+Membuat user monitor pada semua API node
 ```
 mysql> CREATE USER 'monitor'@'%' IDENTIFIED BY 'monitorpassword';
 mysql> GRANT SELECT on sys.* to 'monitor'@'%';
@@ -425,7 +425,7 @@ ProxySQLAdmin> SELECT hostgroup_id, hostname, status FROM runtime_mysql_servers;
 ![onon](screenshot/onon.png)
 
 ### 12.	Membuat user MySQL
-Membuat user baru ```bdtuser``` dengan password ```bdt``` pada kedua API node
+Membuat user baru ```bdtuser``` dengan password ```bdt``` di semua API node
 ```
 mysql> CREATE USER 'bdtuser'@'%' IDENTIFIED BY 'bdt';
 ```
