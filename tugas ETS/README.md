@@ -143,15 +143,22 @@ mysql> show tables;
 ![tables](screenshot/table.png)
 
 ## C. Simulasi Fail Over
+Mencoba mematikan salah satu data node
+```
+$ sudo systemctl stop ndbd
+$ sudo pkill -f ndbd
+```
+![2notconn](screenshot/2notconn.png)
+
 Mencoba mematikan salah satu service node
 ```
 $ sudo systemctl stop mysql
 ```
 ![5notconn](screenshot/5notconn.png)
 
-Meskipun salah satu service node dimatikan, laman wordpress masih bisa diakses dengan baik.
+Meskipun salah satu data node ataupun service node dimatikan, laman wordpress masih bisa diakses dengan baik.
 
-Begitupun ketika service node 1 dihidupkan kembali, dan service node 2 dimatikan.
+Begitupun ketika data node dan service node tadi dihidupkan kembali, dan data node atau service node lainnya dimatikan.
 
 ## D. JMeter
 jMeter atau Apache JMeter adalah aplikasi open source berbasis Java yang dapat dipergunakan untuk performance test. Bagi seorang QA Engineer jMeter bisa digunakan untuk melakukan load/stress testing Web Application, FTP Application dan Database server test.
@@ -222,13 +229,23 @@ Add > Listener > View Results in Table
 ```
 ![j08](screenshot/j08.png)
 
+```
+Klik kanan Test Plan
+Add > Listener > Summary Report
+```
+![j09](screenshot/j09.png)
+
 #### Menjalankan Test secara otomatis.
 
 Simpan terlebih dahulu Test Plan yang telah dibuat di File > Save ( Ctrl + S ).
 
 Klik Run atau Ctrl + R, jMeter akan mulai mensimulasi sejumlah user dalam mengakses web server yang telah ditentukan.
 
+![j10](screenshot/j10.png)
+
 ![hasil](screenshot/hasil.png)
+
+![j12](screenshot/j12.png)
 
 ## Referensi
 https://www.digitalocean.com/community/tutorials/how-to-install-wordpress-with-lamp-on-ubuntu-16-04
