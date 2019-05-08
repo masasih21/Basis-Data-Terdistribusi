@@ -14,13 +14,13 @@ Berikut adalah pembagian IP beserta hostname yang digunakan:
 
 ## B.	Implementasi
 ### 1.	Konfigurasi Awal
-Pada salah satu node data, dibuat database baru ```wordpress```
+Pada salah satu API node, membuat database baru ```wordpress```
 ```
 mysql> CREATE DATABASE wordpress;
 ```
 ![database](screenshot/database.png)
 
-Memberikan akses grup replikasi untuk database ```wordpress```
+Memberikan akses grup replikasi untuk database ```wordpress``` (di semua API node)
 ```
 mysql> GRANT ALL PRIVILEGES on wordpress.* to 'bdtuser'@'%';
 ```
