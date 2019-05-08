@@ -314,7 +314,7 @@ ndb_mgm> SHOW
 ![connect](screenshot/connect.png)
 
 ### 6. Menambahkan Data pada MySQL Cluster
-Mmebuat database ```clustertest```
+Membuat database ```clustertest``` pada salah satu API node
 ```
 mysql> CREATE DATABASE clustertest;
 ```
@@ -389,7 +389,7 @@ Masuk pada MySQL prompt
 ```
 $ mysql -u root –p
 ```
-Membuat user monitor
+Membuat user monitor pada kedua API node
 ```
 mysql> CREATE USER 'monitor'@'%' IDENTIFIED BY 'monitorpassword';
 mysql> GRANT SELECT on sys.* to 'monitor'@'%';
@@ -425,7 +425,7 @@ ProxySQLAdmin> SELECT hostgroup_id, hostname, status FROM runtime_mysql_servers;
 ![onon](screenshot/onon.png)
 
 ### 12.	Membuat user MySQL
-Membuat user baru ```bdtuser``` dengan password ```bdt```
+Membuat user baru ```bdtuser``` dengan password ```bdt``` pada kedua API node
 ```
 mysql> CREATE USER 'bdtuser'@'%' IDENTIFIED BY 'bdt';
 ```
