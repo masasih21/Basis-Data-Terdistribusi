@@ -3,6 +3,8 @@
 ## Pendahuluan
 **Redis** adalah salah satu database NoQSL yang berbasis key-value store. Sistemnya yang in-memory membuat pengambilan data dari Redis menjadi lebih cepat, namun juga persistent bila ingin menyimpan data ke disk. Redis memiliki sejumlah query yang pastinya mudah digunakan untuk menyimpan mulai dari data sederhana hingga data kompleks.
 
+![redis](screenshot/redis.png)
+
 **Keunggulan** Redis :
 1. Sangat cepat - Redis bisa melakukan sekitar 110000 SET per detik, sekitar 81000 GET per detik.
 2. Mendukung banyak tipe data - Redis secara native mendukung sebagian besar tipe data yang telah diketahui pengembang seperti list, set, sorted, dan hash yang diurutkan.
