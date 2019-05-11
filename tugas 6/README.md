@@ -17,6 +17,13 @@ Perbedaan dengan database Key-Value store lainnya :
 3. Keuntungan lain dari database memori adalah bahwa representasi memori dari struktur data kompleks jauh lebih sederhana untuk dimanipulasi dibandingkan dengan struktur data yang sama pada disk. Dengan demikian, Redis bisa melakukan banyak hal dengan sedikit kompleksitas internal.
 
 ## 1. Arsitektur Server
+Sistem ini terdiri dari 1 buah master dan 2 buah slave. Berikut adalah pembagian IP beserta hostname yang digunakan:
+
+| IP            | Nama                | hostname  |
+|---------------|---------------------|-----------|
+| 192.168.33.11	|	master              | node1     |
+| 192.168.33.12	|	slave	              | node2     |
+| 192.168.33.13	|	slave			          | node3     |
 
 ## 2. Instalasi Redis
 
