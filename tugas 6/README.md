@@ -170,24 +170,20 @@ pada node3 dengan ```role:slave```
 
 ### a. Create Data
 Menambahkan data baru atau ```key``` dengan ```value```
-```
-set key value
-```
+> set *key* *value*
+
 ### b. Read Data
 Membaca data dari ```key``` yang telah ditambahkan
-```
-get key
-```
+> get *key*
+
 ### c. Update Data
 Mengupdate data ```key```
-```
-set key value
-```
+> set *key* *value*
+> jika *key* yang disebutkan sudah ada sebelumnya, maka *set* ini akan berfungsi mengupdate *key* yang ditunjuk
+
 ### d. Delete Data
 Menghapus data ```key```
-```
-del key
-```
+> del *key*
 
 ![crud](screenshot/crud.png)
 
