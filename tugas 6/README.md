@@ -26,18 +26,65 @@ Sistem ini terdiri dari 1 buah master dan 2 buah slave. Berikut adalah pembagian
 | 192.168.33.13	|	slave			          | node3     |
 
 ## 2. Instalasi Redis
+```
+$ sudo apt-get update 
+$ sudo apt-get install build-essential tcl
+$ sudo apt-get install libjemalloc-dev  (Optional)
+```
+```
+$ curl -O http://download.redis.io/redis-stable.tar.gz
+$ tar xzvf redis-stable.tar.gz
+$ cd redis-stable
+$ make
+$ make test
+$ sudo make install
+```
+```
+$ sudo ufw allow 6379
+$ sudo ufw allow 26379
 
+$ sudo ufw allow from 192.168.33.11
+$ sudo ufw allow from 192.168.33.12
+$ sudo ufw allow from 192.168.33.13
+```
+```
+src/redis-server redis.conf &
+src/redis-server sentinel.conf --sentinel &
+```
+```
+ps -ef | grep redis
+```
 ## 3. CRUD Data
 
 ### a. Create Data
+```
+set key value
+```
 ### b. Read Data
+```
+get key
+```
 ### c. Update Data
+```
+set key value
+```
 ### d. Delete Data
+```
+del key
+```
 
 ## 4. Simulasi Fail Over
-
+```
+kill -9 <process id>
+or
+redis-cli -p 6379 DEBUG sleep 30
+or
+redis-cli -p 6379 DEBUG SEGFAULT
+```
 ## Kesimpulan
 
 ## Referensi
 https://www.kapalomen.com/2017/09/pengenalan-database-redis-keuntungan.html
 https://www.codepolitan.com/pdkt-dengan-redis
+https://medium.com/@amila922/redis-sentinel-high-availability-everything-you-need-to-know-from-dev-to-prod-complete-guide-deb198e70ea6
+https://redis.io/commands
