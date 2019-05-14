@@ -67,15 +67,22 @@ Menginstall binari ke sistem
 $ sudo make install
 ```
 
-Port default untuk server ```redis``` adalah ```6379``` dan ```sentinel``` adalah ```26379```. Oleh karena berikan akses koneksi berikut:
+Port default untuk server ```redis``` adalah ```6379``` dan ```sentinel``` adalah ```26379```. Oleh karena itu berikan akses koneksi berikut:
+
+untuk redis dan sentinel
 ```
 $ sudo ufw allow 6379
 $ sudo ufw allow 26379
+```
 
+untuk ip lain
+```
 $ sudo ufw allow from 192.168.33.11
 $ sudo ufw allow from 192.168.33.12
 $ sudo ufw allow from 192.168.33.13
 ```
+
+
 ```
 src/redis-server redis.conf &
 src/redis-server sentinel.conf --sentinel &
