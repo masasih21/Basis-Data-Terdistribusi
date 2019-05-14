@@ -146,9 +146,19 @@ hasil
 
 ![ping](screenshot/ping.png)
 
-Mengecek log pada masing-masing node
-```
-```
+Mengecek ```redis.log``` pada masing-masing node
+
+pada node master
+
+![redmas](screenshot/redmas.png)
+
+pada node slave
+
+![redslav](screenshot/redslav.png)
+
+Mengecek ```sentinel.log``` pada masing-masing node
+
+![sent](screenshot/sent.png)
 
 Mengecek status replikasi masing-masing node
 
