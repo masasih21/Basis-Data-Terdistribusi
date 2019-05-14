@@ -26,29 +26,48 @@ Sistem ini terdiri dari 1 buah master dan 2 buah slave. Berikut adalah pembagian
 | 192.168.33.13	|	slave			          | node3     |
 
 ## 2. Instalasi Redis
+Menginstall ```build-essential``` yang memuat dependensi untuk redis, paket ```tcl```, dan ```jemalloc```
 ```
 $ sudo apt-get update 
 $ sudo apt-get install build-essential tcl
 $ sudo apt-get install libjemalloc-dev  (Optional)
 ```
+
+Mengunduh package ```redis```
 ```
 $ curl -O http://download.redis.io/redis-stable.tar.gz
+```
+
+Mengekstrak package ```redis```
+```
 $ tar xzvf redis-stable.tar.gz
 ```
 
 ![ls1](screenshot/ls1.png)
 
+Pindah ke direktori ```redis-stable```
 ```
 $ cd redis-stable
 ```
 
 ![ls2](screenshot/ls2.png)
 
+Mengkompilasi binari redis
 ```
 $ make
+```
+
+Menjalankan test untuk memastikan semuanya dibangun dengan benar
+```
 $ make test
+```
+
+Menginstall binari ke sistem
+```
 $ sudo make install
 ```
+
+Port default untuk server ```redis``` adalah ```6379``` dan ```sentinel``` adalah ```26379```. Oleh karena berikan akses koneksi berikut:
 ```
 $ sudo ufw allow 6379
 $ sudo ufw allow 26379
