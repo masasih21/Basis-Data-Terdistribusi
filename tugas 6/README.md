@@ -217,8 +217,6 @@ Mengecek status replikasi yang telah berubah
 
 ![info2](screenshot/info2.png)
 
-## Kesimpulan
-
 ## Referensi
 https://www.kapalomen.com/2017/09/pengenalan-database-redis-keuntungan.html
 https://www.codepolitan.com/pdkt-dengan-redis
