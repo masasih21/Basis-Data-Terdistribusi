@@ -26,7 +26,7 @@ Sistem ini terdiri dari 1 buah master dan 2 buah slave. Berikut adalah pembagian
 | 192.168.33.13	|	slave			          | node3     |
 
 ## 2. Instalasi Redis
-Menginstall ```build-essential``` yang memuat dependensi untuk redis, paket ```tcl```, dan ```jemalloc```
+Menginstall ```build-essential``` yang memuat dependensi untuk redis, paket ```tcl```, dan ```jemalloc``` pada setiap node
 ```
 $ sudo apt-get update 
 $ sudo apt-get install build-essential tcl
@@ -82,6 +82,34 @@ $ sudo ufw allow from 192.168.33.12
 $ sudo ufw allow from 192.168.33.13
 ```
 
+Melakukan konfigurasi pada file ```redis.conf```
+
+Pada ```Master``` (192.168.33.11)
+```
+protected-mode no
+port 6379
+logfile "/home/vagrant/redis-stable/redis.log"
+dir .
+```
+
+Pada ```slave``` (192.168.33.12, 192.168.33.13)
+```
+protected-mode no
+port 6379
+logfile "/home/vagrant/redis-stable/redis.log"
+dir .
+slaveof 192.168.33.11 6379
+```
+
+Melakukan konfigurasi pada file ```sentinel.conf``` pada setiap node
+```
+protected-mode no
+port 26379
+logfile "/home/vagrant/redis-stable/sentinel.log"
+sentinel monitor mymaster 192.168.33.11 6379 2
+sentinel down-after-milliseconds mymaster 5000
+sentinel failover-timeout mymaster 10000
+```
 
 ```
 src/redis-server redis.conf &
