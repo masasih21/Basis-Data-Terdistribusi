@@ -79,6 +79,12 @@ redis-cli -h IP_Address ping
 
 ![ping](screenshot/ping.png)
 
+![repl1](screenshot/repl1.png)
+
+![repl2](screenshot/repl2.png)
+
+![repl3](screenshot/repl3.png)
+
 ## 3. CRUD Data
 
 ### a. Create Data
