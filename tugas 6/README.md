@@ -169,18 +169,22 @@ pada node3 dengan ```role:slave```
 ## 3. CRUD Data
 
 ### a. Create Data
+Menambahkan data baru atau ```key``` dengan ```value```
 ```
 set key value
 ```
 ### b. Read Data
+Membaca data dari ```key``` yang telah ditambahkan
 ```
 get key
 ```
 ### c. Update Data
+Mengupdate data ```key```
 ```
 set key value
 ```
 ### d. Delete Data
+Menghapus data ```key```
 ```
 del key
 ```
