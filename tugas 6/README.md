@@ -69,13 +69,13 @@ $ sudo make install
 
 Port default untuk server ```redis``` adalah ```6379``` dan ```sentinel``` adalah ```26379```. Oleh karena itu berikan akses koneksi berikut:
 
-untuk redis dan sentinel
+* untuk redis dan sentinel
 ```
 $ sudo ufw allow 6379
 $ sudo ufw allow 26379
 ```
 
-untuk ip lain
+* untuk ip lain
 ```
 $ sudo ufw allow from 192.168.33.11
 $ sudo ufw allow from 192.168.33.12
@@ -84,7 +84,7 @@ $ sudo ufw allow from 192.168.33.13
 
 Melakukan konfigurasi pada file ```redis.conf```
 
-Pada ```Master``` (192.168.33.11)
+* pada ```Master``` (192.168.33.11)
 ```
 protected-mode no
 port 6379
@@ -92,7 +92,7 @@ logfile "/home/vagrant/redis-stable/redis.log"
 dir .
 ```
 
-Pada ```slave``` (192.168.33.12, 192.168.33.13)
+* pada ```slave``` (192.168.33.12, 192.168.33.13)
 ```
 protected-mode no
 port 6379
@@ -122,15 +122,15 @@ Memeriksa proses redis, setiap node harus menjalankan proses redis dan proses se
 $ ps -ef | grep redis
 ```
 
-pada node1
+* pada node1
 
 ![redis1](screenshot/redis1.png)
 
-pada node2
+* pada node2
 
 ![redis2](screenshot/redis2.png)
 
-pada node3
+* pada node3
 
 ![redis3](screenshot/redis3.png)
 
@@ -148,11 +148,11 @@ hasil
 
 Mengecek ```redis.log``` pada masing-masing node
 
-pada node master
+* pada node master
 
 ![redmas](screenshot/redmas.png)
 
-pada node slave
+* pada node slave
 
 ![redslav](screenshot/redslav.png)
 
@@ -162,15 +162,15 @@ Mengecek ```sentinel.log``` pada masing-masing node
 
 Mengecek status replikasi masing-masing node
 
-pada node1 dengan ```role:master```
+* pada node1 dengan ```role:master```
 
 ![repl1](screenshot/repl1.png)
 
-pada node2 dengan ```role:slave```
+* pada node2 dengan ```role:slave```
 
 ![repl2](screenshot/repl2.png)
 
-pada node3 dengan ```role:slave```
+* pada node3 dengan ```role:slave```
 
 ![repl3](screenshot/repl3.png)
 
