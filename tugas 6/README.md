@@ -186,7 +186,9 @@ Membaca data dari ```key``` yang telah ditambahkan
 
 ### c. Update Data
 Mengupdate data ```key```
+
 > set *key* *value*
+
 jika *key* yang disebutkan sudah ada sebelumnya, maka *set* ini akan berfungsi mengupdate *key* yang ditunjuk
 
 ### d. Delete Data
