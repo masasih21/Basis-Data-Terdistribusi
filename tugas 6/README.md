@@ -154,15 +154,15 @@ Mengecek log pada masing-masing node
 
 Mengecek status replikasi masing-masing node
 
-pada node1
+pada node1 dengan ```role:master```
 
 ![repl1](screenshot/repl1.png)
 
-pada node2
+pada node2 dengan ```role:slave```
 
 ![repl2](screenshot/repl2.png)
 
-pada node3
+pada node3 dengan ```role:slave```
 
 ![repl3](screenshot/repl3.png)
 
