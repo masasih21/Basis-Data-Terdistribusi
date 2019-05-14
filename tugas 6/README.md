@@ -113,13 +113,13 @@ sentinel failover-timeout mymaster 10000 #menentukan batas waktu failover dalam 
 
 Menjalankan redis
 ```
-src/redis-server redis.conf &
-src/redis-server sentinel.conf --sentinel &
+$ src/redis-server redis.conf &
+$ src/redis-server sentinel.conf --sentinel &
 ```
 
 Memeriksa proses redis, setiap node harus menjalankan proses redis dan proses sentinel
 ```
-ps -ef | grep redis
+$ ps -ef | grep redis
 ```
 
 pada node1
@@ -137,11 +137,9 @@ pada node3
 
 Melakukan ```ping``` untuk menguji apakah redis berfungsi dengan baik
 ```
-redis-cli ping
-```
-atau
-```
-redis-cli -h 192.168.33.1# ping
+$ redis-cli ping
+or
+$ redis-cli -h 192.168.33.1# ping
 ```
 
 hasil
@@ -179,24 +177,34 @@ Membaca data dari ```key``` yang telah ditambahkan
 ### c. Update Data
 Mengupdate data ```key```
 > set *key* *value*
-> jika *key* yang disebutkan sudah ada sebelumnya, maka *set* ini akan berfungsi mengupdate *key* yang ditunjuk
+jika *key* yang disebutkan sudah ada sebelumnya, maka *set* ini akan berfungsi mengupdate *key* yang ditunjuk
 
 ### d. Delete Data
 Menghapus data ```key```
 > del *key*
 
+hasil:
+
 ![crud](screenshot/crud.png)
 
+slave hanya dapat membaca data, sedangkan proses menulis hanya dapat dilakukan pada master
+
 ## 4. Simulasi Fail Over
+Mematikan salah satu node, dalam simulasi ini dilakukan dengan mematikan node ```master``` (192.168.33.11)
 ```
-kill -9 <process id>
+$ kill -9 <process id>
 or
-redis-cli -p 6379 DEBUG sleep 30
+$ redis-cli -p 6379 DEBUG sleep 30
 or
-redis-cli -p 6379 DEBUG SEGFAULT
+$ redis-cli -p 6379 DEBUG SEGFAULT
 ```
 
+Ketika node ```master``` mati, maka secara otomatis salah satu node ```slave``` akan dipromosikan menjadi ```master```
+
 ![failover](screenshot/failover.png)
+
+Mengecek status replikasi yang telah berubah
+
 ![info2](screenshot/info2.png)
 
 ## Kesimpulan
