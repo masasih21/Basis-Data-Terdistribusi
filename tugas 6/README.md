@@ -98,7 +98,7 @@ protected-mode no
 port 6379
 logfile "/home/vagrant/redis-stable/redis.log"
 dir .
-slaveof 192.168.33.11 6379
+slaveof 192.168.33.11 6379 #memberitahu Redis cluster untuk membuat instance server khusus ini sebagai instance SLAVE dari node MASTER yang diberikan (192.168.33.11).
 ```
 
 Melakukan konfigurasi pada file ```sentinel.conf``` pada setiap node
@@ -106,29 +106,42 @@ Melakukan konfigurasi pada file ```sentinel.conf``` pada setiap node
 protected-mode no
 port 26379
 logfile "/home/vagrant/redis-stable/sentinel.log"
-sentinel monitor mymaster 192.168.33.11 6379 2
-sentinel down-after-milliseconds mymaster 5000
-sentinel failover-timeout mymaster 10000
+sentinel monitor mymaster 192.168.33.11 6379 2 #memberitahu sentinel untuk memonitor master node, 2 sebagai jumlah kuorum
+sentinel down-after-milliseconds mymaster 5000 #server tidak akan merespons selama 5 detik sebelum diklasifikasikan +down dan mengaktifkan +vote untuk memilih node master baru
+sentinel failover-timeout mymaster 10000 #menentukan batas waktu failover dalam milidetik
 ```
 
+Menjalankan redis
 ```
 src/redis-server redis.conf &
 src/redis-server sentinel.conf --sentinel &
 ```
+
+Memeriksa proses redis, setiap node harus menjalankan proses redis dan proses sentinel
 ```
 ps -ef | grep redis
 ```
 
+pada node1
+
 ![redis1](screenshot/redis1.png)
+
+pada node2
 
 ![redis2](screenshot/redis2.png)
 
+pada node3
+
 ![redis3](screenshot/redis3.png)
 
+
+Melakukan ```ping``` untuk menguji apakah redis berfungsi dengan baik
 ```
 redis-cli ping
-or
-redis-cli -h IP_Address ping
+```
+atau
+```
+redis-cli -h 192.168.33.1# ping
 ```
 
 ![ping](screenshot/ping.png)
