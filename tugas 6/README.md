@@ -144,11 +144,25 @@ atau
 redis-cli -h 192.168.33.1# ping
 ```
 
+hasil
+
 ![ping](screenshot/ping.png)
+
+Mengecek log pada masing-masing node
+```
+```
+
+Mengecek status replikasi masing-masing node
+
+pada node1
 
 ![repl1](screenshot/repl1.png)
 
+pada node2
+
 ![repl2](screenshot/repl2.png)
+
+pada node3
 
 ![repl3](screenshot/repl3.png)
 
