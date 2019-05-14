@@ -34,7 +34,17 @@ $ sudo apt-get install libjemalloc-dev  (Optional)
 ```
 $ curl -O http://download.redis.io/redis-stable.tar.gz
 $ tar xzvf redis-stable.tar.gz
+```
+
+![ls1](screenshot/ls1.png)
+
+```
 $ cd redis-stable
+```
+
+![ls2](screenshot/ls2.png)
+
+```
 $ make
 $ make test
 $ sudo make install
