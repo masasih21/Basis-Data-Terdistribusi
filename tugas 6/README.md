@@ -54,6 +54,21 @@ src/redis-server sentinel.conf --sentinel &
 ```
 ps -ef | grep redis
 ```
+
+![redis1](screenshot/redis1.png)
+
+![redis2](screenshot/redis2.png)
+
+![redis3](screenshot/redis3.png)
+
+```
+redis-cli ping
+or
+redis-cli -h IP_Address ping
+```
+
+![ping](screenshot/ping.png)
+
 ## 3. CRUD Data
 
 ### a. Create Data
@@ -73,6 +88,8 @@ set key value
 del key
 ```
 
+![crud](screenshot/crud.png)
+
 ## 4. Simulasi Fail Over
 ```
 kill -9 <process id>
@@ -81,6 +98,10 @@ redis-cli -p 6379 DEBUG sleep 30
 or
 redis-cli -p 6379 DEBUG SEGFAULT
 ```
+
+![failover](screenshot/failover.png)
+![info2](screenshot/info2.png)
+
 ## Kesimpulan
 
 ## Referensi
