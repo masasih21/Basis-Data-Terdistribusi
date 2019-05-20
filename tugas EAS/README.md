@@ -33,7 +33,7 @@ $ sudo nano wp-config.php
 ```
 Tambahkan baris berikut
 ```
-efine( 'WP_REDIS_CLIENT', 'predis' );
+define( 'WP_REDIS_CLIENT', 'predis' );
 define( 'WP_REDIS_SENTINEL', 'mymaster' );
 define( 'WP_REDIS_SERVERS', [
     'tcp://192.168.33.10:26379?database=15&alias=master',
@@ -45,8 +45,8 @@ define('WP_CACHE_KEY_SALT', 'example.com');
 define('WP_CACHE', true);
 ```
 Keterangan:
-- ```WP_REDIS_CLIENT``` menentukan klien yang digunakan untuk berkomunikasi dengan Redis.
 - ```WP_CACHE_KEY_SALT``` mengatur awalan untuk semua kunci cache.
+- ```WP_CACHE``` membuat cache persistent plugin
 
 ### 5.
 
