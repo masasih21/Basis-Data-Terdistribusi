@@ -86,6 +86,7 @@ Melakukan konfigurasi pada file ```redis.conf```
 
 * pada ```Master``` (192.168.33.11)
 ```
+bind 127.0.0.1 192.168.33.11
 protected-mode no
 port 6379
 logfile "/home/vagrant/redis-stable/redis.log"
@@ -94,6 +95,7 @@ dir .
 
 * pada ```slave``` (192.168.33.12, 192.168.33.13)
 ```
+bind 127.0.0.1 192.168.33.1#
 protected-mode no
 port 6379
 logfile "/home/vagrant/redis-stable/redis.log"
