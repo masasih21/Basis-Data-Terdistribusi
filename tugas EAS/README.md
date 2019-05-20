@@ -56,7 +56,7 @@ Keterangan:
 ### 5. Monitoring Redis Cache
 Untuk mengecek koneksi redis
 ```
-Settings > Enable Object Cache
+Settings > Redis > Enable Object Cache
 ```
 
 * sebelum
@@ -66,6 +66,17 @@ Settings > Enable Object Cache
 ![ses](screenshot/ses.png)
 
 Bisa dilihat jika status redis ```connected``` dengan ke 3 server yang telah dikonfigurasi sebelumnya.
+
+Pada redis master dan slave monitoring dilakukan dengan menuliskan script berikut
+```
+redis-cli monitor
+```
+
+lalu dicoba dengan membuat post baru, berikut yang keluar pada monitor redis
+![post](screenshot/post.png)
+
+dicoba dengan memuat post yang sudah ada
+![load](screenshot/load.png)
 
 ## Referensi
 https://wordpress.org/plugins/redis-cache/
