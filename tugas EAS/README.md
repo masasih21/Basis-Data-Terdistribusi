@@ -60,9 +60,11 @@ Settings > Redis > Enable Object Cache
 ```
 
 * sebelum
+
 ![seb](screenshot/seb.png)
 
 * sesudah
+
 ![ses](screenshot/ses.png)
 
 Bisa dilihat jika status redis ```connected``` dengan ke 3 server yang telah dikonfigurasi sebelumnya.
@@ -73,9 +75,11 @@ redis-cli monitor
 ```
 
 lalu dicoba dengan membuat post baru, berikut yang keluar pada monitor redis
+
 ![post](screenshot/post.png)
 
 dicoba dengan memuat post yang sudah ada
+
 ![load](screenshot/load.png)
 
 ## Referensi
