@@ -1,7 +1,7 @@
 # Wordpress dengan MySQL Multi-Node, ProxySQL sebagai Load Balancer, dan Redis Cluster untuk Cache
 
 ## A.	Model Arsitektur
-Sistem ini terdiri dari sebuah NDB Manager, 2 buah Data Node, 2 buah MySQL API Node, sebuah ProxySQL sebagai Load Balancer, serta master dan 2 slave redis.
+Sistem ini terdiri dari sebuah NDB Manager, 2 buah Data Node, 2 buah MySQL API Node, sebuah ProxySQL sebagai Load Balancer, serta sebuah Redis Master dan 2 buah Redis Slave.
 Berikut adalah pembagian IP beserta hostname yang digunakan:
 
 | IP            | Nama                              | hostname  |
