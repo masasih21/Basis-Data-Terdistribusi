@@ -21,7 +21,33 @@ Ikuti langkah pada tutorial berikut [tugas ETS](https://github.com/masasih21/Bas
 ### 3. Konfigurasi Redis
 Ikuti langkah pada tutorial berikut [tugas 6](https://github.com/masasih21/Basis-Data-Terdistribusi/tree/master/tugas%206)
 
-### 4.
+### 4. Konfigurasi Redis Cache pada Wordpress
+Yang harus dilakukan pertama kali adalah menginstall plugin  ```Redis Object Cache```
+```
+Plugins > Add New > Redis Object Cache > Install Now > Activate
+```
+
+Buka ```wp-config.php``` pada proxy
+```
+$ sudo nano wp-config.php
+```
+Tambahkan baris berikut
+```
+efine( 'WP_REDIS_CLIENT', 'predis' );
+define( 'WP_REDIS_SENTINEL', 'mymaster' );
+define( 'WP_REDIS_SERVERS', [
+    'tcp://192.168.33.10:26379?database=15&alias=master',
+    'tcp://192.168.33.11:26379?database=15&alias=slave1',
+    'tcp://192.168.33.12:26379?database=15&alias=slave2',
+] );
+
+define('WP_CACHE_KEY_SALT', 'example.com');
+define('WP_CACHE', true);
+```
+Keterangan:
+- ```WP_REDIS_CLIENT``` menentukan klien yang digunakan untuk berkomunikasi dengan Redis.
+- ```WP_CACHE_KEY_SALT``` mengatur awalan untuk semua kunci cache.
+
 ### 5.
 
 ## Referensi
