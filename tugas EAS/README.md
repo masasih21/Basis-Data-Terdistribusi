@@ -46,7 +46,7 @@ define('WP_CACHE', true);
 ```
 Keterangan:
 - ```WP_CACHE_KEY_SALT``` mengatur awalan untuk semua kunci cache.
-- ```WP_CACHE``` membuat cache persistent plugin
+- ```WP_CACHE``` membuat cache persistent dengan plugin Redis Object Cache
 
 ### 5.
 
