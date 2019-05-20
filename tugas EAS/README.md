@@ -1,15 +1,15 @@
-# Wordpress dengan MySQL Multi-Node, ProxySQL sebagai Load Balancer, dan Redis Cluster untuk Cache
+# Tugas Evaluasi Akhir Semester
 
 ## A.	Model Arsitektur
 Sistem ini terdiri dari sebuah NDB Manager, 2 buah Data Node, 2 buah MySQL API Node, sebuah ProxySQL sebagai Load Balancer, serta sebuah Redis Master dan 2 buah Redis Slave.
 Berikut adalah pembagian IP beserta hostname yang digunakan:
 
-| IP            | Nama                              | hostname  |
-|---------------|-----------------------------------|-----------|
-| 192.168.33.10	|	NDB Manager, Redis Master	        | manager   |
+| IP            | Nama                                | hostname  |
+|---------------|-------------------------------------|-----------|
+| 192.168.33.10	|	NDB Manager, Redis Master	      | manager   |
 | 192.168.33.11	|	Data Node, API Node, Redis Slave  | data1     |
 | 192.168.33.12	|	Data Node, API Node, Redis Slave  | data2     |
-| 192.168.33.13	|	ProxySQL				                  | proxy     |
+| 192.168.33.13	|	ProxySQL				          | proxy     |
 
 ## B.	Implementasi
 ### 1. Konfigurasi MySQL Multi-Node dan ProxySQL
@@ -27,11 +27,15 @@ Yang harus dilakukan pertama kali adalah menginstall plugin  ```Redis Object Cac
 Plugins > Add New > Redis Object Cache > Install Now > Activate
 ```
 
+![cari](screenshot/cari.png)
+
 Buka ```wp-config.php``` pada proxy
 ```
 $ sudo nano wp-config.php
 ```
+
 Tambahkan baris berikut
+
 ```
 define( 'WP_REDIS_CLIENT', 'predis' );
 define( 'WP_REDIS_SENTINEL', 'mymaster' );
@@ -44,11 +48,24 @@ define( 'WP_REDIS_SERVERS', [
 define('WP_CACHE_KEY_SALT', 'example.com');
 define('WP_CACHE', true);
 ```
+
 Keterangan:
 - ```WP_CACHE_KEY_SALT``` mengatur awalan untuk semua kunci cache.
 - ```WP_CACHE``` membuat cache persistent dengan plugin Redis Object Cache
 
-### 5.
+### 5. Monitoring Redis Cache
+Untuk mengecek koneksi redis
+```
+Settings > Enable Object Cache
+```
+
+* sebelum
+![seb](screenshot/seb.png)
+
+* sesudah
+![ses](screenshot/ses.png)
+
+Bisa dilihat jika status redis ```connected``` dengan ke 3 server yang telah dikonfigurasi sebelumnya.
 
 ## Referensi
 https://wordpress.org/plugins/redis-cache/
