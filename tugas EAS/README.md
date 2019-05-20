@@ -87,4 +87,3 @@ https://wordpress.org/plugins/redis-cache/
 https://www.cloudways.com/blog/install-redis-cache-wordpress/
 https://www.digitalocean.com/community/tutorials/how-to-configure-redis-caching-to-speed-up-wordpress-on-ubuntu-14-04
 https://blog.serverdensity.com/monitor-redis/
-.
